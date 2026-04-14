@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | Breaking Ads Agency</title>
+<meta name="description" content="Tell us what you are working on. We will come back with a plan, a price, and a timeline.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap"></noscript>
+<link rel="stylesheet" href="/styles.css">
+<style>
+body { padding-top:64px; }
+
+.contact-layout {
+  display:grid; grid-template-columns:1fr 380px;
+  gap:0;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+
+.contact-form-col { padding:60px; border-right:1px solid var(--line); }
+
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:0 40px; }
+
+.form-field {
+  padding:20px 0;
+  border-bottom:1px solid var(--line);
+}
+.form-field label {
+  font-family:'DM Mono',monospace; font-size:8.5px;
+  letter-spacing:2.5px; text-transform:uppercase;
+  color:rgba(255,255,255,.28); display:block; margin-bottom:10px;
+}
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width:100%; background:transparent;
+  border:none; outline:none;
+  color:var(--cream); font-family:'Anton',sans-serif;
+  font-size:15px; font-weight:500;
+  padding:0; cursor:pointer;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder { color:rgba(255,255,255,.18); }
+.form-field select option { background:#1a1a1a; color:var(--cream); }
+.form-field textarea { resize:none; height:120px; }
+.form-field.full { grid-column:1/-1; }
+.form-field select { color:rgba(255,255,255,.6); }
+
+.form-submit-row {
+  padding-top:36px;
+  display:flex; align-items:center; gap:24px;
+}
+.submit-note {
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:2px; color:rgba(255,255,255,.2);
+  text-transform:uppercase;
+}
+
+.contact-info-col { padding:60px 40px; }
+
+.contact-block { margin-bottom:40px; }
+.contact-block-label {
+  font-family:'DM Mono',monospace; font-size:8.5px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--ox); margin-bottom:12px; display:block;
+}
+.contact-block-val {
+  font-family:'Anton',sans-serif; font-size:15px;
+  font-weight:600; color:var(--cream); line-height:1.6;
+}
+.contact-block-val a { color:var(--cream); transition:color .25s; }
+.contact-block-val a:hover { color:rgba(245,240,232,.6); }
+.contact-block-addr {
+  font-size:13px; color:rgba(255,255,255,.38);
+  line-height:1.8;
+}
+
+.response-box {
+  background:rgba(122,31,46,.12);
+  border:1px solid rgba(122,31,46,.25);
+  padding:20px;
+  margin-top:36px;
+}
+.response-box-label {
+  font-family:'DM Mono',monospace; font-size:8.5px;
+  letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--ox); margin-bottom:8px; display:block;
+}
+.response-box p {
+  font-size:12.5px; color:rgba(255,255,255,.4); line-height:1.7;
+}
+
+.faq-section { padding:80px 60px; border-bottom:1px solid var(--line); }
+.faq-section h2 {
+  font-family:'Anton',sans-serif; font-size:clamp(22px,2.5vw,36px);
+  font-weight:800; margin-bottom:40px; letter-spacing:-0.5px;
+}
+
+.success-msg {
+  display:none;
+  padding:16px 24px;
+  background:rgba(122,31,46,.15);
+  border:1px solid rgba(122,31,46,.3);
+  color:var(--cream);
+  font-family:'DM Mono',monospace;
+  font-size:10px; letter-spacing:2px;
+  text-transform:uppercase; margin-top:20px;
+}
+
+@media (max-width:768px) {
+  .contact-layout { grid-template-columns:1fr; }
+  .contact-form-col { padding:48px 24px; border-right:none; border-bottom:1px solid var(--line); }
+  .contact-info-col { padding:48px 24px; }
+  .form-row { grid-template-columns:1fr; gap:0; }
+  .faq-section { padding:60px 24px; }
+}
+</style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Our Work</a></li>
+    <li><a href="/clients">Clients</a></li>
+    <li><a href="/industries/">Industries</a></li>
+    <li><a href="/contact" class="nav-cta active" style="opacity:1;">Contact Us</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleNav()">☰</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/about" onclick="toggleNav()">About</a>
+  <a href="/services" onclick="toggleNav()">Services</a>
+  <a href="/work" onclick="toggleNav()">Our Work</a>
+  <a href="/clients" onclick="toggleNav()">Clients</a>
+  <a href="/industries/" onclick="toggleNav()">Industries</a>
+  <a href="/contact" class="nav-cta" onclick="toggleNav()">Contact Us</a>
+</div>
+
+<div class="page-hero">
+  <span class="ph-label">Contact</span>
+  <h1>Let's talk about your campaign<span class="slash">/</span></h1>
+  <p class="ph-sub">Tell us what you are working on. We will come back with a plan, a price, and a timeline.</p>
+</div>
+
+<div class="contact-layout">
+  <!-- FORM -->
+  <div class="contact-form-col">
+    <form id='contactForm' method='POST' name='contact'>
+      <input type="hidden" name="form-name" value="contact">
+      <p style="display:none;"><label>Don't fill this out: <input name="bot-field"></label></p>
+
+      <div class="form-row">
+        <div class="form-field">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your full name" required autocomplete="name" maxlength="100">
+        </div>
+        <div class="form-field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="your@email.com" required autocomplete="email" maxlength="254">
+        </div>
+        <div class="form-field">
+          <label for="company">Company</label>
+          <input type="text" id="company" name="company" placeholder="Company or brand" autocomplete="organization" maxlength="100">
+        </div>
+        <div class="form-field">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone" placeholder="Your phone number" autocomplete="tel" maxlength="30">
+        </div>
+        <div class="form-field">
+          <label for="service">What are you looking for?</label>
+          <select id="service" name="service">
+            <option value="" disabled selected>Select an option</option>
+            <option>Media Buying</option>
+            <option>Creative Production</option>
+            <option>Full Campaign</option>
+            <option>DigiVan Hire</option>
+            <option>Something Else</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="budget">Budget range</label>
+          <select id="budget" name="budget">
+            <option value="" disabled selected>Select a range</option>
+            <option>Under £5k</option>
+            <option>£5k–£15k</option>
+            <option>£15k–£50k</option>
+            <option>£50k–£100k</option>
+            <option>£100k+</option>
+            <option>Not sure yet</option>
+          </select>
+        </div>
+        <div class="form-field">
+          <label for="timeline">When do you need this live?</label>
+          <select id="timeline" name="timeline">
+            <option value="" disabled selected>Select a timeframe</option>
+            <option>ASAP</option>
+            <option>1–2 weeks</option>
+            <option>Within a month</option>
+            <option>2–3 months</option>
+            <option>Flexible / TBC</option>
+          </select>
+        </div>
+        <div class="form-field" style="grid-column:1/-1;">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" placeholder="Tell us about your campaign, brand, objectives..." maxlength="2000"></textarea>
+        </div>
+      </div>
+
+      <div class="form-submit-row">
+        <button type="submit" class="btn btn-ox">Send Enquiry</button>
+        <span class="submit-note">We respond within 24 hours</span>
+      </div>
+      <div class="success-msg" id="successMsg">Your enquiry has been sent. We will be in touch within 24 hours.</div>
+    </form>
+  </div>
+
+  <!-- CONTACT INFO -->
+  <div class="contact-info-col">
+    <div class="contact-block">
+      <span class="contact-block-label">Email</span>
+      <div class="contact-block-val">
+        <a href="mailto:hello@breakingads.agency">hello@breakingads.agency</a>
+      </div>
+    </div>
+    <div class="contact-block">
+      <span class="contact-block-label">Phone</span>
+      <div class="contact-block-val">
+        <a href="tel:+447505456730">07505 456730</a>
+      </div>
+    </div>
+    <div class="contact-block">
+      <span class="contact-block-label">Address</span>
+      <div class="contact-block-addr">
+        Suite 10-12 Mezzanine Floor<br>
+        Royal Liver Building, Pier Head<br>
+        Liverpool L3 1HU
+      </div>
+    </div>
+    <div class="contact-block">
+      <span class="contact-block-label">WhatsApp</span>
+      <div class="contact-block-val">
+        <a href="https://wa.me/447505456730" target="_blank" rel="noopener noreferrer">+447505456730</a>
+      </div>
+    </div>
+    <div class="contact-block">
+      <span class="contact-block-label">Follow Us</span>
+      <div class="contact-block-val" style="display:flex;gap:16px;">
+        <a href="https://www.instagram.com/breakingads.agency/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://uk.linkedin.com/company/breaking-ads-agency" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="https://x.com/BreakingAdsAgcy" target="_blank" rel="noopener noreferrer">X</a>
+      </div>
+    </div>
+
+    <div class="response-box">
+      <span class="response-box-label">Response Time</span>
+      <p>We respond within 24 hours. For anything urgent, call or WhatsApp on +447505456730.</p>
+    </div>
+  </div>
+</div>
+
+<!-- FAQ -->
+<div class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      How much does a campaign cost?
+      <span class="icon">+</span>
+    </button>
+    <div class="faq-a">Campaign costs vary significantly depending on the format, duration, and locations. OOH campaigns can range from a few thousand pounds for short-term spots to six figures for large national pushes. We will provide detailed quotes within 48 hours of discussing your brief.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Do you handle creative as well as media?
+      <span class="icon">+</span>
+    </button>
+    <div class="faq-a">Yes. We have an in-house creative team that develops everything from concept through to execution. We can handle the full production pipeline — strategic planning, creative development, media buying, and ongoing campaign management.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      What is the minimum campaign budget?
+      <span class="icon">+</span>
+    </button>
+    <div class="faq-a">We work with campaigns starting from £5,000, though this depends on the format you choose. Podcast ad placements have lower minimums than large-scale OOH. We can discuss what is realistic for your goals and budget.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      How far in advance do I need to book?
+      <span class="icon">+</span>
+    </button>
+    <div class="faq-a">Lead times vary by format. Digital OOH can sometimes be booked within 24 hours, whilst static billboards typically require 2–4 weeks. TV and radio generally need longer planning horizons. We will advise on realistic timelines once we know what you are after.</div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-q" onclick="toggleFaq(this)">
+      Do you work outside the UK?
+      <span class="icon">+</span>
+    </button>
+    <div class="faq-a">Yes. We have experience running campaigns across the US, Ireland, Middle East, and other markets. We work with local partners where needed, so we can handle international campaigns whilst keeping costs reasonable.</div>
+  </div>
+</div>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</div>
+      <p>UK &amp; UAE based global advertising agency that offers OOH advertising, DOOH advertising, TV, radio and podcast campaigns for the biggest brands in the world.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="/about">About</a><a href="/services">Services</a><a href="/work">Our Work</a><a href="/clients">Clients</a><a href="/insights">Insights</a><a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="/services#ooh">OOH Advertising</a><a href="/services#dooh">Digital OOH</a><a href="/services#digivans">DigiVans</a><a href="/services#tv">TV & On-Demand</a><a href="/services#audio">Radio & Podcast</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><a href="mailto:hello@breakingads.agency">hello@breakingads.agency</a></div>
+      <div class="footer-contact-item" style="margin-top:8px;"><a href="tel:+447505456730">07505 456730</a></div>
+      <div class="footer-contact-item" style="margin-top:16px;">Suite 10-12 Mezzanine Floor<br>Royal Liver Building, Pier Head<br>Liverpool L3 1HU</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Breaking Ads Agency 2026. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/breakingads.agency/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://uk.linkedin.com/company/breaking-ads-agency" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://x.com/BreakingAdsAgcy" target="_blank" rel="noopener noreferrer">X</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+/* Form handling */
+const form = document.getElementById('contactForm');
+let submitted = false;
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+  // Prevent double submission
+  if (submitted) return;
+  
+  // Basic validation
+  const email = document.getElementById('email').value;
+  const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRe.test(email)) return;
+  
+  submitted = true;
+  const btn = form.querySelector('button[type="submit"]');
+  if (btn) btn.disabled = true;
+  
+  const data = new FormData(form);
+  fetch('/', { method:'POST', body:data })
+    .then(() => {
+      form.reset();
+      document.getElementById('successMsg').style.display = 'block';
+    })
+    .catch(() => {
+      document.getElementById('successMsg').style.display = 'block';
+    });
+});
+</script>
+</body>
+</html>

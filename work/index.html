@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Work | Breaking Ads Agency</title>
+<meta name="description" content="Real campaigns across every format. OOH, digital, TV, radio and podcast. Planned and bought by one agency.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap"></noscript>
+<link rel="stylesheet" href="/styles.css">
+<style>
+body { padding-top:64px; }
+
+.filter-bar {
+  padding:0 60px 40px;
+  display:flex; gap:0;
+  border-bottom:1px solid var(--line);
+}
+.filter-btn {
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:2.5px; text-transform:uppercase;
+  padding:10px 22px; background:none; border:none;
+  color:rgba(255,255,255,.3); cursor:pointer;
+  transition:all .25s;
+  border-right:1px solid var(--line);
+}
+.filter-btn:first-child { padding-left:0; }
+.filter-btn:hover { color:var(--cream); }
+.filter-btn.active { color:var(--cream); }
+
+.campaign-list { }
+
+.campaign {
+  display:grid; grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--line);
+  transition:background .3s;
+}
+.campaign:hover { background:rgba(255,255,255,.015); }
+.campaign.reverse { direction:rtl; }
+.campaign.reverse > * { direction:ltr; }
+
+.campaign-img-wrap {
+  overflow:hidden; position:relative; min-height:400px;
+}
+.campaign-img {
+  width:100%; height:100%;
+  background-size:cover; background-position:center;
+  filter:brightness(.75) saturate(.7);
+  transition:filter .5s, transform .6s;
+}
+.campaign:hover .campaign-img {
+  filter:brightness(.95) saturate(.9);
+  transform:scale(1.04);
+}
+
+.campaign-info {
+  padding:60px;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.campaign-client {
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--ox); margin-bottom:14px;
+}
+.campaign-title {
+  font-family:'Anton',sans-serif;
+  font-size:clamp(24px,3.5vw,44px); font-weight:800;
+  letter-spacing:-0.5px; line-height:1.1;
+  color:var(--cream); margin-bottom:22px;
+}
+.campaign-desc {
+  font-size:14px; color:rgba(255,255,255,.4);
+  line-height:1.85; margin-bottom:24px;
+  max-width:480px;
+}
+
+.stat-row {
+  display:flex; gap:40px; margin-bottom:28px;
+}
+.stat { }
+.stat-val {
+  font-family:'Anton',sans-serif; font-size:28px;
+  font-weight:800; color:var(--cream);
+  letter-spacing:-1px;
+}
+.stat-val .ox { color:var(--ox); }
+.stat-lbl {
+  font-family:'DM Mono',monospace; font-size:8.5px;
+  letter-spacing:2px; text-transform:uppercase;
+  color:rgba(255,255,255,.25); margin-top:4px;
+  display:block;
+}
+
+@media (max-width:768px) {
+  .campaign { grid-template-columns:1fr; }
+  .campaign.reverse { direction:ltr; }
+  .campaign-img-wrap { min-height:240px; }
+  .campaign-info { padding:36px 24px; }
+  .filter-bar { padding:0 24px 32px; flex-wrap:wrap; }
+  .stat-row { gap:24px; }
+}
+</style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work" class="active">Our Work</a></li>
+    <li><a href="/clients">Clients</a></li>
+    <li><a href="/industries/">Industries</a></li>
+    <li><a href="/contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleNav()">☰</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/about" onclick="toggleNav()">About</a>
+  <a href="/services" onclick="toggleNav()">Services</a>
+  <a href="/work" class="active" onclick="toggleNav()">Our Work</a>
+  <a href="/clients" onclick="toggleNav()">Clients</a>
+  <a href="/industries/" onclick="toggleNav()">Industries</a>
+  <a href="/contact" class="nav-cta" onclick="toggleNav()">Contact Us</a>
+</div>
+
+<div class="page-hero">
+  <span class="ph-label">Our Work</span>
+  <h1>Work that lands<span class="slash">/</span></h1>
+  <p class="ph-sub">Real campaigns across every format. OOH, digital, TV, radio and podcast. Planned and bought by one agency.</p>
+</div>
+
+<div class="filter-bar">
+  <button class="filter-btn active" data-filter="all">All</button>
+  <button class="filter-btn" data-filter="ooh">OOH</button>
+  <button class="filter-btn" data-filter="dooh">DOOH</button>
+  <button class="filter-btn" data-filter="digivan">DigiVan</button>
+  <button class="filter-btn" data-filter="radio">Radio</button>
+  <button class="filter-btn" data-filter="creative">Creative</button>
+</div>
+
+<div class="campaign-list">
+
+  <!-- GOPUFF -->
+  <div class="campaign" data-cats="ooh dooh">
+    <div class="campaign-img-wrap">
+      <a href="/work/gopuff-aldi-prices-ooh-campaign/" style="display:block;height:100%">
+      <div class="campaign-img" style="background-image:url('/img/gopuff-aldi-campaign.jpeg')"></div>
+      </a>
+    </div>
+    <div class="campaign-info">
+      <div class="campaign-client">Gopuff</div>
+      <div class="campaign-title">Aldi Prices, Rapid Delivery</div>
+      <div class="campaign-desc">To raise awareness of the price difference between Gopuff and a rival supermarket, we delivered a national OOH campaign across bus and taxi supersides, large and small format digital and print billboards in major UK cities, and paper and digital sites across the London Underground.</div>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-val"><span class="ox">30</span>%</div>
+          <span class="stat-lbl">Sales increase</span>
+        </div>
+        <div class="stat">
+          <div class="stat-val">#<span class="ox">1</span></div>
+          <span class="stat-lbl">Month for new customers</span>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">OOH</span><span class="tag">DOOH</span>
+        <span class="tag">Bus Supersides</span><span class="tag">Adshel Live</span>
+        <span class="tag">D48</span><span class="tag">D6</span><span class="tag">Large Format</span>
+      </div>
+      <a href="/work/gopuff-aldi-prices-ooh-campaign/" class="btn btn-outline btn-arrow" style="margin-top:24px;display:inline-flex;">View Case Study</a>
+    </div>
+  </div>
+
+  <!-- CHARLI XCX -->
+  <div class="campaign reverse" data-cats="dooh digivan">
+    <div class="campaign-img-wrap">
+      <a href="/work/charli-xcx-brat-album-ooh/" style="display:block;height:100%">
+      <div class="campaign-img" style="background-image:url('/img/charli-xcx-brat-divans.jpeg')"></div>
+      </a>
+    </div>
+    <div class="campaign-info">
+      <div class="campaign-client">Charli XCX / Atlantic Records</div>
+      <div class="campaign-title">BRAT Album Release</div>
+      <div class="campaign-desc">To celebrate the release of Charli XCX's new album, we used Digital OOH Advertising in New York, London, Manchester and Birmingham. A mixture of high-impact digital screens and DigiVans generated over 14 million impressions in just 24 hours.</div>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-val"><span class="ox">14M</span></div>
+          <span class="stat-lbl">Impressions in 24 hours</span>
+        </div>
+        <div class="stat">
+          <div class="stat-val"><span class="ox">4</span></div>
+          <span class="stat-lbl">Cities activated</span>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">DOOH</span><span class="tag">DigiVan</span>
+        <span class="tag">International OOH</span><span class="tag">Large Format</span>
+      </div>
+      <a href="/work/charli-xcx-brat-album-ooh/" class="btn btn-outline btn-arrow" style="margin-top:24px;display:inline-flex;">View Case Study</a>
+    </div>
+  </div>
+
+  <!-- SIDEMEN -->
+  <div class="campaign" data-cats="ooh radio">
+    <div class="campaign-img-wrap">
+      <div class="campaign-img" style="background-image:url('/img/work-sidemen-best.jpg')"></div>
+    </div>
+    <div class="campaign-info">
+      <div class="campaign-client">Sidemen / BEST Cereal</div>
+      <div class="campaign-title">BEST Cereal Launch</div>
+      <div class="campaign-desc">To raise awareness of Sidemen's new cereal brand BEST, we used a mixture of Radio and Traditional OOH Advertising. High-impact sites in major cities within 100m of schools on paper sites, plus a nationwide radio campaign targeting parents of their target audience.</div>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-val"><span class="ox">100K</span></div>
+          <span class="stat-lbl">Boxes sold week one</span>
+        </div>
+        <div class="stat">
+          <div class="stat-val">#<span class="ox">1</span></div>
+          <span class="stat-lbl">In the cereal charts</span>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">OOH</span><span class="tag">Radio</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRUNO MARS -->
+  <div class="campaign reverse" data-cats="ooh dooh creative">
+    <div class="campaign-img-wrap">
+      <a href="/work/bruno-mars-the-romantic-ooh-campaign/" style="display:block;height:100%">
+      <div class="campaign-img" style="background-image:url('/img/work-bruno-mars.jpg')"></div>
+      </a>
+    </div>
+    <div class="campaign-info">
+      <div class="campaign-client">Bruno Mars / Atlantic Records</div>
+      <div class="campaign-title">The Romantic Album Release</div>
+      <div class="campaign-desc">To raise awareness of Bruno Mars' new album 'The Romantic', we launched an OOH activation in London which included a branded red Cadillac, over 1,000 bouquets of free flowers, and over 700 digital screens nationwide reaching fans in shopping malls, on the roadside, in convenience stores, and more.</div>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-val">20<span class="ox">M+</span></div>
+          <span class="stat-lbl">Total impressions</span>
+        </div>
+        <div class="stat">
+          <div class="stat-val"><span class="ox">700</span></div>
+          <span class="stat-lbl">Digital screens</span>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">OOH</span><span class="tag">DOOH</span><span class="tag">Creative</span>
+      </div>
+      <a href="/work/bruno-mars-the-romantic-ooh-campaign/" class="btn btn-outline btn-arrow" style="margin-top:24px;display:inline-flex;">View Case Study</a>
+    </div>
+  </div>
+
+  <!-- GYMSHARK -->
+  <div class="campaign" data-cats="ooh creative">
+    <div class="campaign-img-wrap">
+      <a href="/work/gymshark-we-do-gym-wild-posting/" style="display:block;height:100%">
+      <div class="campaign-img" style="background-image:url('/img/work-gymshark.jpg')"></div>
+      </a>
+    </div>
+    <div class="campaign-info">
+      <div class="campaign-client">Gymshark</div>
+      <div class="campaign-title">We Do Gym</div>
+      <div class="campaign-desc">To celebrate Gymshark's new store opening in New York, we used a New York favourite when it comes to OOH advertising — Wild Posting. Spreading their bold creative across 5 areas of New York to give maximum impact and reach big audiences in the big apple.</div>
+      <div class="stat-row">
+        <div class="stat">
+          <div class="stat-val"><span class="ox">5</span></div>
+          <span class="stat-lbl">NYC areas activated</span>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">OOH</span><span class="tag">Creative</span><span class="tag">Wild Posting</span>
+      </div>
+      <a href="/work/gymshark-we-do-gym-wild-posting/" class="btn btn-outline btn-arrow" style="margin-top:24px;display:inline-flex;">View Case Study</a>
+    </div>
+  </div>
+
+</div>
+
+<div class="cta-strip">
+  <h2>Want results like these?</h2>
+  <a href="/contact" class="btn btn-white btn-arrow">Brief us in</a>
+</div>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</div>
+      <p>UK &amp; UAE based global advertising agency that offers OOH advertising, DOOH advertising, TV, radio and podcast campaigns for the biggest brands in the world.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="/about">About</a><a href="/services">Services</a><a href="/work">Our Work</a><a href="/clients">Clients</a><a href="/insights">Insights</a><a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="/services#ooh">OOH Advertising</a><a href="/services#dooh">Digital OOH</a><a href="/services#digivans">DigiVans</a><a href="/services#tv">TV & On-Demand</a><a href="/services#audio">Radio & Podcast</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><a href="mailto:hello@breakingads.agency">hello@breakingads.agency</a></div>
+      <div class="footer-contact-item" style="margin-top:8px;"><a href="tel:+447505456730">07505 456730</a></div>
+      <div class="footer-contact-item" style="margin-top:16px;">Suite 10-12 Mezzanine Floor<br>Royal Liver Building, Pier Head<br>Liverpool L3 1HU</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Breaking Ads Agency 2026. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/breakingads.agency/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://uk.linkedin.com/company/breaking-ads-agency" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://x.com/BreakingAdsAgcy" target="_blank" rel="noopener noreferrer">X</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+
+/* Filter */
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const f = btn.dataset.filter;
+    document.querySelectorAll('.campaign').forEach(c => {
+      c.style.display = (f === 'all' || c.dataset.cats.includes(f)) ? '' : 'none';
+    });
+  });
+});
+</script>
+</body>
+</html>

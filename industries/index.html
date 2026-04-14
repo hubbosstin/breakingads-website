@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breaking Ads by Industry | OOH Advertising Agency</title>
+<meta name="description" content="Breaking Ads OOH advertising campaigns across music, fashion, food and drink, beauty, sport, automotive, fintech, wellness, entertainment and luxury.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap"></noscript>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="stylesheet" href="/styles.css">
+<style>
+body{padding-top:64px}
+.hub-hero{padding:80px 60px 64px;border-bottom:1px solid var(--line)}
+.hub-hero .section-label{display:block;margin-bottom:16px}
+.hub-hero h1{font-family:'Anton',sans-serif;font-size:clamp(40px,6vw,80px);text-transform:uppercase;letter-spacing:1px;line-height:1;color:var(--cream);max-width:760px;margin-bottom:24px}
+.hub-hero h1 span{color:var(--ox)}
+.hub-hero p{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:300;color:rgba(245,240,232,.6);max-width:520px;line-height:1.6}
+.hub-grid{display:grid;grid-template-columns:repeat(2,1fr)}
+.hub-card{position:relative;min-height:320px;display:flex;flex-direction:column;justify-content:flex-end;padding:40px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;text-decoration:none;color:var(--cream)}
+.hub-card:nth-child(2n){border-right:none}
+.hub-card-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.3) saturate(.5);transition:filter .4s ease,transform .6s ease;transform:scale(1.04)}
+.hub-card:hover .hub-card-bg{filter:brightness(.45) saturate(.7);transform:scale(1)}
+.hub-card-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,10,10,.9) 0%,transparent 60%)}
+.hub-card-num{position:relative;z-index:2;font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--ox);margin-bottom:10px}
+.hub-card-title{position:relative;z-index:2;font-family:'Anton',sans-serif;font-size:clamp(28px,3.5vw,44px);text-transform:uppercase;letter-spacing:1px;line-height:1;margin-bottom:10px}
+.hub-card-arrow{position:relative;z-index:2;font-family:'DM Mono',monospace;font-size:11px;color:rgba(245,240,232,.3);transition:color .25s}
+.hub-card:hover .hub-card-arrow{color:var(--ox)}
+@media(max-width:768px){.hub-hero{padding:60px 24px 48px}.hub-grid{grid-template-columns:1fr}.hub-card{border-right:none;min-height:220px;padding:28px 24px}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <a href="/" class="nav-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Our Work</a></li>
+    <li><a href="/clients">Clients</a></li>
+    <li><a href="/industries/">Industries</a></li>
+    <li><a href="/contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleNav()">&#9776;</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/about" onclick="toggleNav()">About</a>
+  <a href="/services" onclick="toggleNav()">Services</a>
+  <a href="/work" onclick="toggleNav()">Our Work</a>
+  <a href="/clients" onclick="toggleNav()">Clients</a>
+  <a href="/industries/" onclick="toggleNav()">Industries</a>
+  <a href="/contact" class="nav-cta" onclick="toggleNav()">Contact Us</a>
+</div>
+<div class="hub-hero">
+  <span class="section-label">Sector Expertise</span>
+  <h1>Breaking Ads for every industry<span>/</span></h1>
+  <p>Select your sector to see how we approach OOH for your market, your audience and your commercial objectives.</p>
+</div>
+<div class="hub-grid">
+  <a href="/music" class="hub-card">
+    <div class="hub-card-bg" style="background-image:url('/img/charli-xcx-brat-billboard.jpg')"></div>
+    <div class="hub-card-num">01</div>
+    <div class="hub-card-title">Music</div>
+    <div class="hub-card-arrow">View sector &rarr;</div>
+  </a>
+  <a href="/fashion" class="hub-card">
+    <div class="hub-card-bg" style="background-image:url('/img/gymshark-we-do-gym.jpg')"></div>
+    <div class="hub-card-num">02</div>
+    <div class="hub-card-title">Fashion</div>
+    <div class="hub-card-arrow">View sector &rarr;</div>
+  </a>
+  <a href="/food-drink" class="hub-card">
+    <div class="hub-card-bg" style="background-image:url('/img/gopuff-tube-underground.jpg')"></div>
+    <div class="hub-card-num">03</div>
+    <div class="hub-card-title">Food &amp; Drink</div>
+    <div class="hub-card-arrow">View sector &rarr;</div>
+  </a>
+  <a href="/beauty" class="hub-card">
+    <div class="hub-card-bg" style="background-image:url('/img/revive-collagen-dubai.jpg')"></div>
+    <div class="hub-card-num">04</div>
+    <div class="hub-card-title">Beauty</div>
+    <div class="hub-card-arrow">View sector &rarr;</div>
+  </a>
+  <a href="/sport" class="hub-card">
+    <div class="hub-card-bg" style="background-image:url('/img/paddy-power-miami-2025.jpg')"></div>
+    <div class="hub-card-num">05</div>
+    <div class="hub-card-title">Sport</div>
+    <div class="hub-card-arrow">View sector &rarr;</div>
+  </a>
+  <a href="/automotive" class="hub-card">
+    <div class="hub-card-bg" style="background-image:url('/img/odyssey-boxpark-dooh.jpg')"></div>
+    <div class="hub-card-num">06</div>
+    <div class="hub-card-title">Automotive</div>
+    <div class="hub-card-arrow">View sector &rarr;</div>
+  </a>
+  <a href="/fintech" class="hub-card">
+    <div class="hub-card-bg" style="background-image:url('/img/mumford-sons-old-street.jpg')"></div>
+    <div class="hub-card-num">07</div>
+    <div class="hub-card-title">Fintech</div>
+    <div class="hub-card-arrow">View sector &rarr;</div>
+  </a>
+  <a href="/wellness" class="hub-card">
+    <div class="hub-card-bg" style="background-image:url('/img/simplymeds-shopping-centre.jpg')"></div>
+    <div class="hub-card-num">08</div>
+    <div class="hub-card-title">Wellness</div>
+    <div class="hub-card-arrow">View sector &rarr;</div>
+  </a>
+  <a href="/entertainment" class="hub-card">
+    <div class="hub-card-bg" style="background-image:url('/img/ed-sheeran-projection.jpg')"></div>
+    <div class="hub-card-num">09</div>
+    <div class="hub-card-title">Entertainment</div>
+    <div class="hub-card-arrow">View sector &rarr;</div>
+  </a>
+  <a href="/luxury" class="hub-card">
+    <div class="hub-card-bg" style="background-image:url('/img/revive-collagen-dubai.jpg')"></div>
+    <div class="hub-card-num">010</div>
+    <div class="hub-card-title">Luxury</div>
+    <div class="hub-card-arrow">View sector &rarr;</div>
+  </a>
+</div>
+<div class="cta-strip">
+  <h2>Not sure where you fit?</h2>
+  <a href="/contact" class="btn btn-white btn-arrow">Talk to Us</a>
+</div>
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</div>
+      <p>UK &amp; UAE based global advertising agency that offers OOH advertising, DOOH advertising, TV, radio and podcast campaigns for the biggest brands in the world.</p>
+    </div>
+    <div class="footer-col"><h4>Pages</h4><a href="/about">About</a><a href="/services">Services</a><a href="/work">Our Work</a><a href="/clients">Clients</a><a href="/insights">Insights</a><a href="/contact">Contact</a></div>
+    <div class="footer-col"><h4>Services</h4><a href="/services#ooh">OOH Advertising</a><a href="/services#dooh">Digital OOH</a><a href="/services#digivans">DigiVans</a><a href="/services#tv">TV &amp; On-Demand</a><a href="/services#audio">Radio &amp; Podcast</a></div>
+    <div class="footer-col"><h4>Contact</h4><div class="footer-contact-item"><a href="mailto:hello@breakingads.agency">hello@breakingads.agency</a></div><div class="footer-contact-item" style="margin-top:8px;"><a href="tel:+447505456730">07505 456730</a></div></div>
+  </div>
+  <div class="footer-bottom">
+    <p>Breaking Ads Agency 2026. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/breakingads.agency/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://uk.linkedin.com/company/breaking-ads-agency" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://x.com/BreakingAdsAgcy" target="_blank" rel="noopener noreferrer">X</a>
+    </div>
+  </div>
+</footer>
+<script>function toggleNav(){document.getElementById('mobileNav').classList.toggle('open');}</script>
+</body>
+</html>

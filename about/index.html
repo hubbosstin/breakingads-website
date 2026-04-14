@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About | Breaking Ads Agency</title>
+<meta name="description" content="Breaking Ads is an independent advertising agency based in the UK and Middle East, operating globally. We plan, buy and execute multi-channel campaigns.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap"></noscript>
+<link rel="stylesheet" href="/styles.css">
+<style>
+body { padding-top:64px; }
+
+.about-image {
+  width:100%; aspect-ratio:16/7;
+  object-fit:cover;
+  filter:brightness(.8) saturate(.7);
+  display:block;
+}
+
+.story-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; align-items:start;
+}
+.story-body p {
+  font-size:15px; color:rgba(255,255,255,.45);
+  line-height:1.85; margin-bottom:18px;
+}
+.story-body p:last-child { margin-bottom:0; }
+
+.regions {
+  display:grid; grid-template-columns:repeat(4,1fr);
+  border-top:1px solid var(--line); border-left:1px solid var(--line);
+}
+.region {
+  padding:40px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.region-flag {
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--ox); margin-bottom:14px;
+}
+.region-name {
+  font-family:'Anton',sans-serif; font-size:20px;
+  font-weight:700; color:var(--cream); margin-bottom:10px;
+}
+.region-desc {
+  font-size:12.5px; color:rgba(255,255,255,.35);
+  line-height:1.7;
+}
+
+.dubai-image {
+  width:100%; aspect-ratio:16/7;
+  object-fit:cover; object-position:center;
+  filter:brightness(.75) saturate(.65);
+  display:block;
+}
+
+.founder-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:80px; align-items:start;
+}
+.founder-img {
+  width:100%; max-width:420px; aspect-ratio:4/5;
+  object-fit:cover; object-position:top;
+  filter:brightness(.85) saturate(.7);
+  display:block;
+}
+.founder-label {
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--ox); margin-bottom:20px; display:block;
+}
+.founder-name {
+  font-family:'Anton',sans-serif; font-size:clamp(28px,4vw,52px);
+  font-weight:800; letter-spacing:4px; margin-bottom:28px;
+}
+.founder-bio p {
+  font-size:15px; color:rgba(255,255,255,.45);
+  line-height:1.85; margin-bottom:18px;
+}
+.founder-links { display:flex; gap:16px; margin-top:28px; }
+.founder-link {
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:2.5px; text-transform:uppercase;
+  color:var(--cream); padding:10px 20px;
+  border:1px solid rgba(255,255,255,.2);
+  transition:all .25s;
+}
+.founder-link:hover { border-color:var(--cream); }
+
+@media (max-width:768px) {
+  .story-grid { grid-template-columns:1fr; gap:40px; }
+  .regions { grid-template-columns:1fr 1fr; }
+  .founder-grid { grid-template-columns:1fr; gap:40px; }
+}
+</style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="nav-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</a>
+  <ul class="nav-links">
+    <li><a href="/about" class="active">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Our Work</a></li>
+    <li><a href="/clients">Clients</a></li>
+    <li><a href="/industries/">Industries</a></li>
+    <li><a href="/contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleNav()">☰</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/about" class="active" onclick="toggleNav()">About</a>
+  <a href="/services" onclick="toggleNav()">Services</a>
+  <a href="/work" onclick="toggleNav()">Our Work</a>
+  <a href="/clients" onclick="toggleNav()">Clients</a>
+  <a href="/industries/" onclick="toggleNav()">Industries</a>
+  <a href="/contact" class="nav-cta" onclick="toggleNav()">Contact Us</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <span class="ph-label">About</span>
+  <h1 style="color:#F5F0E8;">The go-to advertising agency for the world's most culturally relevant and fastest growing brands<span class="slash">/</span></h1>
+  <p class="ph-sub">Breaking Ads is an independent advertising agency based in the UK and Middle East that operates globally. We plan and buy media, produce creative and deliver multi-channel campaigns across out-of-home, digital, TV, radio and podcast advertising.</p>
+</div>
+
+<!-- HERO IMAGE -->
+<img src="/img/about-hero.jpg" alt="Breaking Ads team" class="about-image">
+
+<!-- STORY -->
+<div class="section">
+  <span class="section-label">The Story</span>
+  <div class="story-grid">
+    <div>
+      <h2 class="section-title">We started because we wanted to do things differently<span class="slash">.</span></h2>
+    </div>
+    <div class="story-body">
+      <p>Too many agencies separate the thinking from the doing. The media buyer does not talk to the designer. The strategist has never booked a billboard. The result is campaigns that look good in a deck but fall apart in execution.</p>
+      <p>Breaking Ads was built to close that gap. We keep media buying, creative production and campaign management in one team. Everyone understands the formats. Everyone understands the deadlines.</p>
+      <p>We work with brands of all sizes. From a single DigiVan activation to a national multi-format campaign across OOH, TV and radio. The approach is the same: understand the objective, plan the media, produce the work, deliver it on time.</p>
+    </div>
+  </div>
+</div>
+
+<!-- WHERE WE OPERATE -->
+<div class="section" style="padding-top:0;">
+  <span class="section-label">Where We Operate</span>
+  <h2 class="section-title">Campaigns across borders. Relationships on the ground<span class="slash">.</span></h2>
+</div>
+
+<div class="regions">
+  <div class="region">
+    <div class="region-flag">UK</div>
+    <div class="region-name">United Kingdom</div>
+    <div class="region-desc">Headquarters. Full-service delivery across all formats and channels nationwide.</div>
+  </div>
+  <div class="region">
+    <div class="region-flag">ME</div>
+    <div class="region-name">Middle East</div>
+    <div class="region-desc">Dubai, Saudi Arabia, Qatar. Growing OOH and digital presence across the region.</div>
+  </div>
+  <div class="region">
+    <div class="region-flag">WA</div>
+    <div class="region-name">West Africa</div>
+    <div class="region-desc">Growing OOH and broadcast presence across Nigeria, Ghana and the wider West African market.</div>
+  </div>
+  <div class="region">
+    <div class="region-flag">US</div>
+    <div class="region-name">United States</div>
+    <div class="region-desc">Billboard and digital OOH campaigns in major metro markets.</div>
+  </div>
+</div>
+
+<img src="/img/Dubai.JPG" alt="Breaking Ads billboard in Dubai" class="dubai-image">
+
+<!-- FOUNDER -->
+<div class="section">
+  <span class="section-label">Founder</span>
+  <div class="founder-grid">
+    <div>
+      <img src="/img/jess-fitzpatrick.jpeg" alt="Jessica Fitzpatrick, Founder of Breaking Ads" class="founder-img">
+    </div>
+    <div>
+      <span class="founder-label">Founder & Director</span>
+      <div class="founder-name">Jessica Fitzpatrick</div>
+      <div class="founder-bio">
+        <p>Jessica Fitzpatrick is the founder of Breaking Ads and works at the intersection of culture, brands and outdoor advertising. She supports brands and artists of all sizes, from their first step into the OOH space with a single billboard through to global campaigns delivered across multiple territories.</p>
+        <p>Through Breaking Ads, Jessica has developed campaigns that place artists and brands directly in front of audiences across major cities worldwide, working with partners across music, live entertainment and youth culture.</p>
+        <p>Her approach focuses on speed, cultural relevance and practical execution — helping clients translate online momentum into visible real-world impact.</p>
+      </div>
+      <div class="founder-links">
+        <a href="https://www.linkedin.com/in/fitzpatrickjessica/" target="_blank" rel="noopener noreferrer" class="founder-link">LinkedIn</a>
+        <a href="https://www.instagram.com/oohwithjess/" target="_blank" rel="noopener noreferrer" class="founder-link">Instagram</a>
+        <a href="https://substack.com/@oohwithjess/posts" target="_blank" rel="noopener noreferrer" class="founder-link">Substack</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <h2>Ready to work together?</h2>
+  <a href="/contact" class="btn btn-white btn-arrow">Get In Touch</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</div>
+      <p>UK &amp; UAE based global advertising agency that offers OOH advertising, DOOH advertising, TV, radio and podcast campaigns for the biggest brands in the world.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="/about">About</a>
+      <a href="/services">Services</a>
+      <a href="/work">Our Work</a>
+      <a href="/clients">Clients</a>
+      <a href="/insights">Insights</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="/services#ooh">OOH Advertising</a>
+      <a href="/services#dooh">Digital OOH</a>
+      <a href="/services#digivans">DigiVans</a>
+      <a href="/services#tv">TV & On-Demand</a>
+      <a href="/services#audio">Radio & Podcast</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><a href="mailto:hello@breakingads.agency">hello@breakingads.agency</a></div>
+      <div class="footer-contact-item" style="margin-top:8px;"><a href="tel:+447505456730">07505 456730</a></div>
+      <div class="footer-contact-item" style="margin-top:16px;">Suite 10-12 Mezzanine Floor<br>Royal Liver Building, Pier Head<br>Liverpool L3 1HU</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Breaking Ads Agency 2026. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/breakingads.agency/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://uk.linkedin.com/company/breaking-ads-agency" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://x.com/BreakingAdsAgcy" target="_blank" rel="noopener noreferrer">X</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+</script>
+</body>
+</html>

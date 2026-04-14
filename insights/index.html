@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Insights | Breaking Ads Agency</title>
+<meta name="description" content="Advertising insights from the agency that thinks differently. Practical knowledge from our work in OOH, digital and broadcast.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap"></noscript>
+<link rel="stylesheet" href="/styles.css">
+<style>
+body { padding-top:64px; }
+
+.featured-article {
+  display:grid; grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--line);
+}
+.fa-img {
+  min-height:420px; position:relative; overflow:hidden;
+  background:var(--dark3);
+}
+.fa-img-bg {
+  position:absolute; inset:0;
+  background-image:url('https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=900&h=700&fit=crop&q=85');
+  background-size:cover; background-position:center;
+  filter:brightness(.55) saturate(.6);
+  transition:filter .5s;
+}
+.featured-article:hover .fa-img-bg { filter:brightness(.7) saturate(.75); }
+.fa-body {
+  padding:60px;
+  display:flex; flex-direction:column; justify-content:center;
+}
+.fa-cat {
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--ox); margin-bottom:20px;
+}
+.fa-title {
+  font-family:'Anton',sans-serif;
+  font-size:clamp(24px,3.5vw,44px); font-weight:800;
+  letter-spacing:-0.5px; line-height:1.1;
+  color:var(--cream); margin-bottom:20px;
+}
+.fa-desc {
+  font-size:14.5px; color:rgba(255,255,255,.4);
+  line-height:1.8; margin-bottom:28px;
+}
+.fa-read {
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:2.5px; text-transform:uppercase;
+  color:rgba(255,255,255,.3);
+}
+
+.subscribe-strip {
+  padding:60px;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  display:flex; justify-content:space-between; align-items:center;
+  gap:40px;
+}
+.sub-text h3 {
+  font-family:'Anton',sans-serif; font-size:22px; font-weight:700;
+  margin-bottom:6px;
+}
+.sub-text p {
+  font-size:13px; color:rgba(255,255,255,.35);
+}
+.sub-form {
+  display:flex; gap:0; flex-shrink:0;
+}
+.sub-input {
+  background:#1a1a1a; border:1px solid rgba(255,255,255,.12);
+  border-right:none; padding:12px 20px;
+  color:var(--cream); font-family:'Anton',sans-serif; font-size:13px;
+  outline:none; width:280px;
+}
+.sub-input::placeholder { color:rgba(255,255,255,.2); }
+.sub-btn {
+  background:var(--ox); color:var(--cream); border:none;
+  padding:12px 24px; font-family:'Anton',sans-serif;
+  font-size:13px; font-weight:700; cursor:pointer;
+  transition:background .25s; letter-spacing:0.5px;
+}
+.sub-btn:hover { background:var(--ox-l); }
+
+@media (max-width:768px) {
+  .featured-article { grid-template-columns:1fr; }
+  .fa-img { min-height:220px; }
+  .fa-body { padding:36px 24px; }
+  .subscribe-strip { flex-direction:column; align-items:flex-start; padding:48px 24px; }
+  .sub-form { width:100%; }
+  .sub-input { flex:1; width:auto; }
+}
+</style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Our Work</a></li>
+    <li><a href="/clients">Clients</a></li>
+    <li><a href="/industries/">Industries</a></li>
+    <li><a href="/contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleNav()">☰</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/about" onclick="toggleNav()">About</a>
+  <a href="/services" onclick="toggleNav()">Services</a>
+  <a href="/work" onclick="toggleNav()">Our Work</a>
+  <a href="/clients" onclick="toggleNav()">Clients</a>
+  <a href="/industries/" onclick="toggleNav()">Industries</a>
+  <a href="/contact" class="nav-cta" onclick="toggleNav()">Contact Us</a>
+</div>
+
+<div class="page-hero">
+  <span class="ph-label">Insights</span>
+  <h1>Advertising insights, brought to you by the agency that thinks differently<span class="slash">/</span></h1>
+  <p class="ph-sub">Practical knowledge from our work in OOH, digital and broadcast. No gatekeeping.</p>
+</div>
+
+<!-- FEATURED -->
+<a href="/insights/music-ooh" class="featured-article" style="text-decoration:none;display:grid;">
+  <div class="fa-img">
+    <div class="fa-img-bg"></div>
+  </div>
+  <div class="fa-body">
+    <div class="fa-cat">Featured · Music & OOH</div>
+    <div class="fa-title">Why Music Campaigns Own the Streets</div>
+    <div class="fa-desc">Album drops, tour announcements, festival builds. OOH is the format that turns releases into cultural moments. Here is how we plan them — and why the streets are still the most powerful medium in music marketing.</div>
+    <div class="fa-read">Read article →</div>
+  </div>
+</a>
+
+<!-- ARTICLES GRID -->
+<div class="insights-grid" style="border-top:none;">
+  <a href="/insights/why-ooh-still-wins" class="insight-card" style="text-decoration:none;">
+    <div class="insight-cat">Strategy</div>
+    <div class="insight-title">Why OOH Still Wins in a Saturated Digital Market</div>
+    <div class="insight-read">6 min read →</div>
+  </a>
+  <a href="/insights/ooh-first-time" class="insight-card" style="text-decoration:none;">
+    <div class="insight-cat">OOH</div>
+    <div class="insight-title">OOH for First-Time Buyers: What You Need to Know Before Spending</div>
+    <div class="insight-read">6 min read →</div>
+  </a>
+  <a href="/insights/dooh-vs-traditional" class="insight-card" style="text-decoration:none;">
+    <div class="insight-cat">Strategy</div>
+    <div class="insight-title">DOOH vs Traditional OOH: When to Use Which</div>
+    <div class="insight-read">5 min read →</div>
+  </a>
+  <a href="/insights/ooh-playbooks" class="insight-card" style="text-decoration:none;">
+    <div class="insight-cat">OOH</div>
+    <div class="insight-title">OOH Campaign Playbooks by Sector</div>
+    <div class="insight-read">8 min read →</div>
+  </a>
+  <a href="/insights/digivan-playbook" class="insight-card" style="text-decoration:none;">
+    <div class="insight-cat">Industry</div>
+    <div class="insight-title">The DigiVan Playbook: When Mobile Screens Beat Static Sites</div>
+    <div class="insight-read">6 min read →</div>
+  </a>
+  <a href="/insights/audio-attribution" class="insight-card" style="text-decoration:none;">
+    <div class="insight-cat">Measurement</div>
+    <div class="insight-title">Audio Attribution: Why Podcast Metrics Matter</div>
+    <div class="insight-read">5 min read →</div>
+  </a>
+</div>
+
+<!-- SUBSCRIBE -->
+<div class="subscribe-strip">
+  <div class="sub-text">
+    <h3>Get our thinking delivered.</h3>
+    <p>Be the first to know about breaking offers and new insights.</p>
+  </div>
+  <form class="sub-form" onsubmit="return false;">
+    <input type="email" class="sub-input" placeholder="Your email address">
+    <button class="sub-btn">Subscribe</button>
+  </form>
+</div>
+
+<div class="cta-strip">
+  <h2>Ready to plan a campaign?</h2>
+  <a href="/contact" class="btn btn-white btn-arrow">Contact Us</a>
+</div>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</div>
+      <p>UK &amp; UAE based global advertising agency that offers OOH advertising, DOOH advertising, TV, radio and podcast campaigns for the biggest brands in the world.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="/about">About</a><a href="/services">Services</a><a href="/work">Our Work</a><a href="/clients">Clients</a><a href="/insights">Insights</a><a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="/services#ooh">OOH Advertising</a><a href="/services#dooh">Digital OOH</a><a href="/services#digivans">DigiVans</a><a href="/services#tv">TV & On-Demand</a><a href="/services#audio">Radio & Podcast</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><a href="mailto:hello@breakingads.agency">hello@breakingads.agency</a></div>
+      <div class="footer-contact-item" style="margin-top:8px;"><a href="tel:+447505456730">07505 456730</a></div>
+      <div class="footer-contact-item" style="margin-top:16px;">Suite 10-12 Mezzanine Floor<br>Royal Liver Building, Pier Head<br>Liverpool L3 1HU</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Breaking Ads Agency 2026. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/breakingads.agency/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://uk.linkedin.com/company/breaking-ads-agency" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://x.com/BreakingAdsAgcy" target="_blank" rel="noopener noreferrer">X</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+</script>
+</body>
+</html>

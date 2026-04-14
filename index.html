@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Breaking Ads | OOH & Media Advertising Agency</title>
+<meta name="description" content="Breaking Ads is a full-service advertising agency specialising in OOH, billboard, digital screen, TV, radio and podcast campaigns. Based in London, operating globally.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap"></noscript>
+<link rel="stylesheet" href="/styles.css">
+<style>
+/* ── Home-specific ── */
+body { padding-top:64px; }
+
+/* Carousel */
+.carousel-wrap {
+  padding:52px 0 0;
+  overflow:hidden; position:relative;
+  cursor:grab; user-select:none;
+}
+.carousel-wrap.dragging { cursor:grabbing; }
+.carousel-wrap::before,
+.carousel-wrap::after {
+  content:''; position:absolute; top:0; bottom:0; z-index:4; width:140px; pointer-events:none;
+}
+.carousel-wrap::before { left:0;  background:linear-gradient(90deg,#0a0a0a,transparent); }
+.carousel-wrap::after  { right:0; background:linear-gradient(-90deg,#0a0a0a,transparent); }
+.c-track { display:flex; width:max-content; will-change:transform; touch-action:pan-y; }
+.ccard {
+  width:280px; flex-shrink:0;
+  height:clamp(340px,46vh,500px);
+  margin-right:16px; position:relative; overflow:hidden;
+  will-change:transform;
+}
+.ccard-img {
+  width:100%; height:calc(100% - 52px);
+  background-size:cover; background-position:center; background-color:#1a1a1a;
+  filter:brightness(.72) saturate(.78);
+  transition:filter .4s ease;
+}
+.ccard:hover .ccard-img { filter:brightness(1) saturate(1); }
+.ccard-foot {
+  height:52px; background:#111;
+  display:flex; flex-direction:column; justify-content:center;
+  padding:0 16px; gap:3px;
+  border-top:1px solid rgba(255,255,255,.04);
+}
+.ccard-cl { font-family:'Anton',sans-serif; font-size:14px; font-weight:700; color:var(--cream); }
+.ccard-tp { font-family:'DM Mono',monospace; font-size:8px; color:rgba(255,255,255,.28); letter-spacing:1.5px; }
+
+/* Identity block */
+.identity {
+  padding:60px 60px 0;
+  display:flex; justify-content:space-between; align-items:flex-end;
+}
+.id-name {
+  font-family:'Anton',sans-serif;
+  font-size:clamp(40px,7vw,100px); font-weight:800;
+  color:var(--cream); line-height:1; letter-spacing:-2px; text-transform:uppercase;
+}
+.id-name .ox { color:var(--ox); }
+.id-right { text-align:right; }
+.id-tag {
+  font-family:'DM Mono',monospace; font-size:10px;
+  color:rgba(255,255,255,.22); letter-spacing:2.5px;
+  text-transform:uppercase; line-height:2;
+}
+
+/* Work section */
+.work-section { padding:80px 0; }
+.work-section-header { padding:0 60px 48px; display:flex; justify-content:space-between; align-items:flex-end; }
+
+/* Services capabilities list */
+.caps-wrap {
+  padding:80px 60px;
+  border-top:1px solid var(--line);
+}
+.caps-header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:48px; }
+.caps-list {
+  display:grid;
+  grid-template-columns:repeat(7,1fr);
+  border-left:1px solid var(--line);
+}
+.cap-item {
+  padding:28px 24px;
+  border-right:1px solid var(--line);
+  cursor:pointer; transition:background .25s;
+}
+.cap-item:hover { background:rgba(255,255,255,.025); }
+.cap-num {
+  font-family:'DM Mono',monospace; font-size:8px;
+  color:rgba(255,255,255,.2); letter-spacing:2px;
+  margin-bottom:12px;
+}
+.cap-name {
+  font-family:'Anton',sans-serif; font-size:14px; font-weight:700;
+  color:var(--cream); line-height:1.3;
+}
+
+/* Intro strip */
+.intro-strip {
+  padding:80px 60px;
+  border-top:1px solid var(--line);
+  display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:start;
+}
+.intro-headline {
+  font-family:'Anton',sans-serif;
+  font-size:clamp(24px,3.5vw,46px); font-weight:800;
+  line-height:1.1; letter-spacing:-.5px;
+}
+.intro-headline .slash { color:rgba(245,240,232,.2); }
+.intro-body {
+  font-size:15px; color:rgba(245,240,232,.6); line-height:1.8;
+}
+.intro-body p { margin-bottom:16px; }
+.intro-body p:last-child { margin-bottom:0; }
+
+/* Logo section */
+.logos-section { padding:80px 60px; border-top:1px solid var(--line); }
+.logos-label { margin-bottom:40px; }
+
+@media (max-width:768px) {
+  .identity { flex-direction:column; gap:24px; padding:40px 24px 0; align-items:flex-start; }
+  .id-name { text-align:left; }
+  .id-right { text-align:left; }
+  .caps-list { grid-template-columns:repeat(2,1fr); }
+  .intro-strip { grid-template-columns:1fr; gap:40px; padding:60px 24px; }
+  .work-section-header { padding:0 24px 36px; flex-direction:column; gap:20px; align-items:flex-start; }
+  .logos-section { padding:60px 24px; }
+  .caps-wrap { padding:60px 24px; }
+}
+</style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="/" class="nav-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Our Work</a></li>
+    <li><a href="/clients">Clients</a></li>
+    <li><a href="/industries/">Industries</a></li>
+    <li><a href="/contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleNav()">☰</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/about" onclick="toggleNav()">About</a>
+  <a href="/services" onclick="toggleNav()">Services</a>
+  <a href="/work" onclick="toggleNav()">Our Work</a>
+  <a href="/clients" onclick="toggleNav()">Clients</a>
+  <a href="/industries/" onclick="toggleNav()">Industries</a>
+  <a href="/contact" class="nav-cta" onclick="toggleNav()">Contact Us</a>
+</div>
+
+<!-- CAROUSEL -->
+<div class="carousel-wrap" id="carouselWrap">
+  <div class="c-track" id="carouselTrack">
+    <!-- 20 ORIGINALS — all real campaign images -->
+    <div class="ccard"><div class="ccard-img" data-bg="/img/sidemen-best-cereal-ooh.jpg" style="background-image:url('/img/sidemen-best-cereal-ooh.jpg')" role="img" aria-label="Sidemen BEST Cereal OOH advertising campaign UK 2024"></div><div class="ccard-foot"><div class="ccard-cl">Sidemen / BEST Cereal</div><div class="ccard-tp">OOH · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/gopuff-tube-underground.jpg" style="background-image:url('/img/gopuff-tube-underground.jpg')" role="img" aria-label="Gopuff London Underground OOH advertising campaign 2024"></div><div class="ccard-foot"><div class="ccard-cl">Gopuff</div><div class="ccard-tp">London Underground · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/charli-xcx-brat-billboard.jpg" style="background-image:url('/img/charli-xcx-brat-billboard.jpg')" role="img" aria-label="Charli XCX BRAT album large format OOH billboard 2024"></div><div class="ccard-foot"><div class="ccard-cl">Charli XCX / Atlantic</div><div class="ccard-tp">BRAT · Large Format · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/aitch-album-campaign.jpg" style="background-image:url('/img/aitch-album-campaign.jpg')" role="img" aria-label="Aitch Album 4 OOH and taxi advertising campaign 2025"></div><div class="ccard-foot"><div class="ccard-cl">Aitch</div><div class="ccard-tp">Album '4' · OOH / Taxi · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/revive-collagen-dubai.jpg" style="background-image:url('/img/revive-collagen-dubai.jpg')" role="img" aria-label="Revive Collagen large format OOH advertising Dubai 2025"></div><div class="ccard-foot"><div class="ccard-cl">Revive Collagen</div><div class="ccard-tp">Dubai · Large Format · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/paddy-power-miami-2025.jpg" style="background-image:url('/img/paddy-power-miami-2025.jpg')" role="img" aria-label="Paddy Power OOH advertising campaign Miami 2025"></div><div class="ccard-foot"><div class="ccard-cl">Paddy Power</div><div class="ccard-tp">Miami · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/ed-sheeran-projection.jpg" style="background-image:url('/img/ed-sheeran-projection.jpg')" role="img" aria-label="Ed Sheeran building projection OOH advertising London 2025"></div><div class="ccard-foot"><div class="ccard-cl">Ed Sheeran</div><div class="ccard-tp">Building Projection · London · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/mumford-sons-old-street.jpg" style="background-image:url('/img/mumford-sons-old-street.jpg')" role="img" aria-label="Mumford and Sons Old Street digital OOH advertising 2025"></div><div class="ccard-foot"><div class="ccard-cl">Mumford & Sons</div><div class="ccard-tp">Old Street DOOH · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/odyssey-boxpark-dooh.jpg" style="background-image:url('/img/odyssey-boxpark-dooh.jpg')" role="img" aria-label="Gustavo Dudamel Boxpark digital OOH advertising 2025"></div><div class="ccard-foot"><div class="ccard-cl">Gustavo Dudamel</div><div class="ccard-tp">Boxpark DOOH · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/sidemen-xix-event.jpg" style="background-image:url('/img/sidemen-xix-event.jpg')" role="img" aria-label="Sidemen XIX experiential OOH advertising 2024"></div><div class="ccard-foot"><div class="ccard-cl">Sidemen XIX</div><div class="ccard-tp">Experiential · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/bruno-mars-back-to-305.jpg" style="background-image:url('/img/bruno-mars-back-to-305.jpg')" role="img" aria-label="Omar Plus Back to the 305 OOH advertising 2025"></div><div class="ccard-foot"><div class="ccard-cl">Omar+</div><div class="ccard-tp">Back to the 305 · OOH · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/mariah-carey-la-2025.jpg" style="background-image:url('/img/mariah-carey-la-2025.jpg')" role="img" aria-label="Mariah Carey Gamma DigiVan OOH advertising Los Angeles 2025"></div><div class="ccard-foot"><div class="ccard-cl">Mariah Carey / Gamma</div><div class="ccard-tp">LA · DigiVan · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/gopuff-aldi-campaign.jpeg" style="background-image:url('/img/gopuff-aldi-campaign.jpeg')" role="img" aria-label="Gopuff Aldi Prices national OOH campaign UK 2026"></div><div class="ccard-foot"><div class="ccard-cl">Gopuff</div><div class="ccard-tp">Aldi Prices Campaign · 2026</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/charli-xcx-brat-divans.jpeg" style="background-image:url('/img/charli-xcx-brat-divans.jpeg')" role="img" aria-label="Charli XCX BRAT DigiVan OOH campaign London 2024"></div><div class="ccard-foot"><div class="ccard-cl">Charli XCX / Atlantic</div><div class="ccard-tp">BRAT · DigiVan · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/work-sidemen-best.jpg" style="background-image:url('/img/work-sidemen-best.jpg')" role="img" aria-label="Sidemen BEST Cereal OOH advertising UK 2024"></div><div class="ccard-foot"><div class="ccard-cl">Sidemen</div><div class="ccard-tp">BEST Cereal / OOH · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/work-bruno-mars.jpg" style="background-image:url('/img/work-bruno-mars.jpg')" role="img" aria-label="Bruno Mars The Romantic OOH advertising London 2026"></div><div class="ccard-foot"><div class="ccard-cl">Bruno Mars / Atlantic Records</div><div class="ccard-tp">The Romantic · OOH · 2026</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/work-gymshark.jpg" style="background-image:url('/img/work-gymshark.jpg')" role="img" aria-label="Gymshark We Do Gym wild posting New York 2024"></div><div class="ccard-foot"><div class="ccard-cl">Gymshark</div><div class="ccard-tp">We Do Gym · Wild Posting · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/sidemen-best-cereal-ooh.jpg" style="background-image:url('/img/sidemen-best-cereal-ooh.jpg')" role="img" aria-label="Sidemen BEST Cereal OOH advertising campaign UK 2024"></div><div class="ccard-foot"><div class="ccard-cl">Sidemen / BEST Cereal</div><div class="ccard-tp">OOH · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/aitch-album-campaign.jpg" style="background-image:url('/img/aitch-album-campaign.jpg')" role="img" aria-label="Aitch Album 4 OOH and taxi advertising campaign 2025"></div><div class="ccard-foot"><div class="ccard-cl">Aitch</div><div class="ccard-tp">Album '4' · OOH / Taxi · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/mumford-sons-old-street.jpg" style="background-image:url('/img/mumford-sons-old-street.jpg')" role="img" aria-label="Mumford and Sons Old Street digital OOH advertising 2025"></div><div class="ccard-foot"><div class="ccard-cl">Mumford & Sons</div><div class="ccard-tp">Old Street DOOH · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/odyssey-boxpark-dooh.jpg" style="background-image:url('/img/odyssey-boxpark-dooh.jpg')" role="img" aria-label="Gustavo Dudamel Boxpark digital OOH advertising 2025"></div><div class="ccard-foot"><div class="ccard-cl">Gustavo Dudamel</div><div class="ccard-tp">Boxpark DOOH · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/ed-sheeran-projection.jpg" style="background-image:url('/img/ed-sheeran-projection.jpg')" role="img" aria-label="Ed Sheeran building projection OOH advertising London 2025"></div><div class="ccard-foot"><div class="ccard-cl">Ed Sheeran</div><div class="ccard-tp">Building Projection · London · 2025</div></div></div>
+    <!-- DUPLICATES for seamless loop -->
+    <div class="ccard"><div class="ccard-img" data-bg="/img/sidemen-best-cereal-ooh.jpg" style="background-image:url('/img/sidemen-best-cereal-ooh.jpg')" role="img" aria-label="Sidemen BEST Cereal OOH advertising campaign UK 2024"></div><div class="ccard-foot"><div class="ccard-cl">Sidemen / BEST Cereal</div><div class="ccard-tp">OOH · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/gopuff-tube-underground.jpg" style="background-image:url('/img/gopuff-tube-underground.jpg')" role="img" aria-label="Gopuff London Underground OOH advertising campaign 2024"></div><div class="ccard-foot"><div class="ccard-cl">Gopuff</div><div class="ccard-tp">London Underground · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/charli-xcx-brat-billboard.jpg" style="background-image:url('/img/charli-xcx-brat-billboard.jpg')" role="img" aria-label="Charli XCX BRAT album large format OOH billboard 2024"></div><div class="ccard-foot"><div class="ccard-cl">Charli XCX / Atlantic</div><div class="ccard-tp">BRAT · Large Format · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/aitch-album-campaign.jpg" style="background-image:url('/img/aitch-album-campaign.jpg')" role="img" aria-label="Aitch Album 4 OOH and taxi advertising campaign 2025"></div><div class="ccard-foot"><div class="ccard-cl">Aitch</div><div class="ccard-tp">Album '4' · OOH / Taxi · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/revive-collagen-dubai.jpg" style="background-image:url('/img/revive-collagen-dubai.jpg')" role="img" aria-label="Revive Collagen large format OOH advertising Dubai 2025"></div><div class="ccard-foot"><div class="ccard-cl">Revive Collagen</div><div class="ccard-tp">Dubai · Large Format · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/paddy-power-miami-2025.jpg" style="background-image:url('/img/paddy-power-miami-2025.jpg')" role="img" aria-label="Paddy Power OOH advertising campaign Miami 2025"></div><div class="ccard-foot"><div class="ccard-cl">Paddy Power</div><div class="ccard-tp">Miami · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/ed-sheeran-projection.jpg" style="background-image:url('/img/ed-sheeran-projection.jpg')" role="img" aria-label="Ed Sheeran building projection OOH advertising London 2025"></div><div class="ccard-foot"><div class="ccard-cl">Ed Sheeran</div><div class="ccard-tp">Building Projection · London · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/mumford-sons-old-street.jpg" style="background-image:url('/img/mumford-sons-old-street.jpg')" role="img" aria-label="Mumford and Sons Old Street digital OOH advertising 2025"></div><div class="ccard-foot"><div class="ccard-cl">Mumford & Sons</div><div class="ccard-tp">Old Street DOOH · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/odyssey-boxpark-dooh.jpg" style="background-image:url('/img/odyssey-boxpark-dooh.jpg')" role="img" aria-label="Gustavo Dudamel Boxpark digital OOH advertising 2025"></div><div class="ccard-foot"><div class="ccard-cl">Gustavo Dudamel</div><div class="ccard-tp">Boxpark DOOH · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/sidemen-xix-event.jpg" style="background-image:url('/img/sidemen-xix-event.jpg')" role="img" aria-label="Sidemen XIX experiential OOH advertising 2024"></div><div class="ccard-foot"><div class="ccard-cl">Sidemen XIX</div><div class="ccard-tp">Experiential · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/bruno-mars-back-to-305.jpg" style="background-image:url('/img/bruno-mars-back-to-305.jpg')" role="img" aria-label="Omar Plus Back to the 305 OOH advertising 2025"></div><div class="ccard-foot"><div class="ccard-cl">Omar+</div><div class="ccard-tp">Back to the 305 · OOH · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/mariah-carey-la-2025.jpg" style="background-image:url('/img/mariah-carey-la-2025.jpg')" role="img" aria-label="Mariah Carey Gamma DigiVan OOH advertising Los Angeles 2025"></div><div class="ccard-foot"><div class="ccard-cl">Mariah Carey / Gamma</div><div class="ccard-tp">LA · DigiVan · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/gopuff-aldi-campaign.jpeg" style="background-image:url('/img/gopuff-aldi-campaign.jpeg')" role="img" aria-label="Gopuff Aldi Prices national OOH campaign UK 2026"></div><div class="ccard-foot"><div class="ccard-cl">Gopuff</div><div class="ccard-tp">Aldi Prices Campaign · 2026</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/charli-xcx-brat-divans.jpeg" style="background-image:url('/img/charli-xcx-brat-divans.jpeg')" role="img" aria-label="Charli XCX BRAT DigiVan OOH campaign London 2024"></div><div class="ccard-foot"><div class="ccard-cl">Charli XCX / Atlantic</div><div class="ccard-tp">BRAT · DigiVan · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/work-sidemen-best.jpg" style="background-image:url('/img/work-sidemen-best.jpg')" role="img" aria-label="Sidemen BEST Cereal OOH advertising UK 2024"></div><div class="ccard-foot"><div class="ccard-cl">Sidemen</div><div class="ccard-tp">BEST Cereal / OOH · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/work-bruno-mars.jpg" style="background-image:url('/img/work-bruno-mars.jpg')" role="img" aria-label="Bruno Mars The Romantic OOH advertising London 2026"></div><div class="ccard-foot"><div class="ccard-cl">Bruno Mars / Atlantic Records</div><div class="ccard-tp">The Romantic · OOH · 2026</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/work-gymshark.jpg" style="background-image:url('/img/work-gymshark.jpg')" role="img" aria-label="Gymshark We Do Gym wild posting New York 2024"></div><div class="ccard-foot"><div class="ccard-cl">Gymshark</div><div class="ccard-tp">We Do Gym · Wild Posting · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/revive-collagen-dubai.jpg" style="background-image:url('/img/revive-collagen-dubai.jpg')" role="img" aria-label="Revive Collagen large format OOH advertising Dubai 2025"></div><div class="ccard-foot"><div class="ccard-cl">Revive Collagen</div><div class="ccard-tp">Dubai · Large Format · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/sidemen-xix-event.jpg" style="background-image:url('/img/sidemen-xix-event.jpg')" role="img" aria-label="Sidemen XIX experiential OOH advertising 2024"></div><div class="ccard-foot"><div class="ccard-cl">Sidemen XIX</div><div class="ccard-tp">Experiential · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/gopuff-tube-underground.jpg" style="background-image:url('/img/gopuff-tube-underground.jpg')" role="img" aria-label="Gopuff London Underground OOH advertising campaign 2024"></div><div class="ccard-foot"><div class="ccard-cl">Gopuff</div><div class="ccard-tp">London Underground · 2024</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/bruno-mars-back-to-305.jpg" style="background-image:url('/img/bruno-mars-back-to-305.jpg')" role="img" aria-label="Omar Plus Back to the 305 OOH advertising 2025"></div><div class="ccard-foot"><div class="ccard-cl">Omar+</div><div class="ccard-tp">Back to the 305 · OOH · 2025</div></div></div>
+    <div class="ccard"><div class="ccard-img" data-bg="/img/charli-xcx-brat-billboard.jpg" style="background-image:url('/img/charli-xcx-brat-billboard.jpg')" role="img" aria-label="Charli XCX BRAT album large format OOH billboard 2024"></div><div class="ccard-foot"><div class="ccard-cl">Charli XCX / Atlantic</div><div class="ccard-tp">BRAT · Large Format · 2024</div></div></div>
+  </div>
+</div>
+
+<!-- IDENTITY -->
+<div class="identity">
+  <div class="id-name">BREAKING<br><span class="ox">ADS</span></div>
+  <div class="id-right">
+    <div class="id-tag">OOH · DOOH · TV · Radio · Paid Digital<br>Media Planning · Media Buying · Creative Production<br>UK · Middle East · America · Africa · Japan</div>
+  </div>
+</div>
+
+<!-- CLIENT TICKER -->
+<div class="ticker" style="margin-top:50px;">
+  <div class="ticker-track">
+    <span class="ti">WARNER MUSIC</span><span class="ts">◆</span><span class="ti">ATLANTIC RECORDS</span><span class="ts">◆</span><span class="ti">UNIVERSAL MUSIC</span><span class="ts">◆</span><span class="ti">SONY MUSIC</span><span class="ts">◆</span><span class="ti">ISLAND RECORDS</span><span class="ts">◆</span><span class="ti">LIVE NATION</span><span class="ts">◆</span><span class="ti">GYMSHARK</span><span class="ts">◆</span><span class="ti">SIDEMEN</span><span class="ts">◆</span><span class="ti">PADDY POWER</span><span class="ts">◆</span><span class="ti">AU VODKA</span><span class="ts">◆</span><span class="ti">XIX VODKA</span><span class="ts">◆</span><span class="ti">GOPUFF</span><span class="ts">◆</span><span class="ti">ANN SUMMERS</span><span class="ts">◆</span><span class="ti">GYM KING</span><span class="ts">◆</span><span class="ti">HAIR SYRUP</span><span class="ts">◆</span><span class="ti">SLIM CHICKENS</span><span class="ts">◆</span>
+    <span class="ti">WARNER MUSIC</span><span class="ts">◆</span><span class="ti">ATLANTIC RECORDS</span><span class="ts">◆</span><span class="ti">UNIVERSAL MUSIC</span><span class="ts">◆</span><span class="ti">SONY MUSIC</span><span class="ts">◆</span><span class="ti">ISLAND RECORDS</span><span class="ts">◆</span><span class="ti">LIVE NATION</span><span class="ts">◆</span><span class="ti">GYMSHARK</span><span class="ts">◆</span><span class="ti">SIDEMEN</span><span class="ts">◆</span><span class="ti">PADDY POWER</span><span class="ts">◆</span><span class="ti">AU VODKA</span><span class="ts">◆</span><span class="ti">XIX VODKA</span><span class="ts">◆</span><span class="ti">GOPUFF</span><span class="ts">◆</span><span class="ti">ANN SUMMERS</span><span class="ts">◆</span><span class="ti">GYM KING</span><span class="ts">◆</span><span class="ti">HAIR SYRUP</span><span class="ts">◆</span><span class="ti">SLIM CHICKENS</span><span class="ts">◆</span>
+  </div>
+</div>
+
+<!-- WHAT WE DO -->
+<div class="section" style="background:#111518;border-top:1px solid rgba(255,255,255,0.06);">
+  <span class="section-label">What We Do</span>
+  <div class="intro-strip" style="padding:0;border:none;">
+    <div>
+      <h2 class="intro-headline">Media buying and creative under one roof<span style="color:var(--ox);">/</span></h2>
+    </div>
+    <div class="intro-body">
+      <p>Brands start with us, grow with us and stay with us. We plan and buy media across every major channel, produce the creative to run on it, and manage the campaign from brief to completion.</p>
+      <p>One team. One point of contact. No gaps between strategy and execution.</p>
+      <a href="/services" class="btn btn-outline btn-arrow" style="margin-top:24px;display:inline-flex;">View All Services</a>
+    </div>
+  </div>
+</div>
+
+<div class="svc-grid" style="background:#111518;">
+  <div class="svc-item">
+    <div class="svc-num" style="color:var(--ox);">01 — MEDIA</div>
+    <div class="svc-h">Buying</div>
+    <div class="svc-p">OOH, DOOH, TV, radio, podcast, digital. We buy across every channel and negotiate directly with media owners.</div>
+  </div>
+  <div class="svc-item">
+    <div class="svc-num" style="color:var(--ox);">02 — PRODUCTION</div>
+    <div class="svc-h">Creative</div>
+    <div class="svc-p">Billboard artwork, animated DOOH, TV spots, radio scripts, social content. Designed for the format it runs on.</div>
+  </div>
+  <div class="svc-item" style="border-right:none;">
+    <div class="svc-num" style="color:var(--ox);">03 — END TO END</div>
+    <div class="svc-h">Campaign</div>
+    <div class="svc-p">Route planning, scheduling, trafficking, monitoring, reporting. We run it end to end so you do not have to.</div>
+  </div>
+</div>
+
+<!-- SELECTED WORK -->
+<div class="work-section" style="background:rgba(255,255,255,0.04);">
+  <div class="work-section-header" style="padding-top:80px;">
+    <div>
+      <span class="section-label">Selected Work</span>
+      <h2 class="section-title" style="margin:0;">Recent campaigns<span style="color:var(--ox);">/</span></h2>
+    </div>
+    <a href="/work" class="btn btn-outline btn-arrow">View All Work</a>
+  </div>
+  <div class="work-grid">
+    <div class="work-card">
+      <div class="work-card-img" style="background-image:url('/img/gopuff-aldi-campaign.jpeg')"></div>
+      <div class="work-card-body">
+        <div class="work-card-client">Gopuff</div>
+        <div class="work-card-title">Aldi Prices, Rapid Delivery</div>
+        <div class="work-card-desc">A national OOH campaign across bus and taxi supersides, large and small format digital and print billboards in major UK cities. Increased sales by 30% and delivered the highest sales turnover on record.</div>
+        <a href="/work" class="btn btn-outline btn-arrow" style="margin-top:4px;">View Campaign</a>
+      </div>
+    </div>
+    <div class="work-card">
+      <div class="work-card-img" style="background-image:url('/img/charli-xcx-brat-divans.jpeg')"></div>
+      <div class="work-card-body">
+        <div class="work-card-client">Charli XCX / Atlantic Records</div>
+        <div class="work-card-title">BRAT Album Release</div>
+        <div class="work-card-desc">Digital OOH in New York, London, Manchester and Birmingham. Over 14 million impressions in just 24 hours using high-impact digital screens and DigiVans.</div>
+        <a href="/work" class="btn btn-outline btn-arrow" style="margin-top:4px;">View Campaign</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CLIENT LOGOS -->
+<div class="logos-section">
+  <span class="section-label logos-label">Trusted By</span>
+  <div class="logo-grid">
+    <a class="logo-cell" href="https://www.warnermusic.com" target="_blank" rel="noopener" title="Warner Music Group"><img src="/img/Warner_Music_Group_logo_(2021).svg.png" alt="Warner Music Group"></a>
+    <a class="logo-cell" href="https://www.atlanticrecords.com" target="_blank" rel="noopener" title="Atlantic Records"><img src="/img/atlantic-black.png" alt="Atlantic Records" style="filter:invert(1);opacity:.45;"></a>
+    <a class="logo-cell" href="https://www.universalmusic.com" target="_blank" rel="noopener" title="Universal Music"><img src="/img/Universal_Music-clean.png" alt="Universal Music"></a>
+    <a class="logo-cell" href="https://www.sonymusic.com" target="_blank" rel="noopener" title="Sony Music"><img src="/img/sony-music-clean.png" alt="Sony Music"></a>
+    <a class="logo-cell" href="https://www.islandrecords.com" target="_blank" rel="noopener" title="Island Records"><img src="/img/Island_Records_logo.svg" alt="Island Records"></a>
+    <a class="logo-cell" href="https://www.livenation.co.uk" target="_blank" rel="noopener" title="Live Nation"><img src="/img/LN_Logo_Primary_Red-Black-web-clean.png" alt="Live Nation"></a>
+    <a class="logo-cell" href="https://www.gymshark.com" target="_blank" rel="noopener" title="Gymshark"><img src="/img/gymshark-logo-clean.png" alt="Gymshark"></a>
+    <a class="logo-cell" href="https://www.paddypower.com" target="_blank" rel="noopener" title="Paddy Power"><img src="/img/Paddy_Power_logo.png" alt="Paddy Power"></a>
+    <a class="logo-cell" href="https://www.gopuff.com" target="_blank" rel="noopener" title="Gopuff"><img src="/img/Gopufflogo.png" alt="Gopuff"></a>
+    <a class="logo-cell" href="https://www.sidemenclothing.com" target="_blank" rel="noopener" title="Sidemen"><img src="/img/Sidemen_logo.png" alt="Sidemen"></a>
+    <a class="logo-cell" href="https://www.xixvodka.com" target="_blank" rel="noopener" title="XIX Vodka"><img src="/img/xix-black.png" alt="XIX Vodka"></a>
+    <a class="logo-cell" href="https://www.auvodka.com" target="_blank" rel="noopener" title="AU Vodka"><img src="/img/au-vodka-black.png" alt="AU Vodka"></a>
+    <a class="logo-cell" href="https://www.annsummers.com" target="_blank" rel="noopener" title="Ann Summers"><img src="/img/ann-summers-ltd-logo-vector-clean.png" alt="Ann Summers"></a>
+    <a class="logo-cell" href="https://www.gymking.com" target="_blank" rel="noopener" title="Gym King"><img src="/img/gymking-clean.png" alt="Gym King"></a>
+    <a class="logo-cell" href="https://www.hairsyrup.co.uk" target="_blank" rel="noopener" title="Hair Syrup"><img src="/img/MASTER_HAIR_SYRUP_LOGO_-_BROWN_3e770ad6-59ed-49b6-a912-361fedffa8c1-clean.png" alt="Hair Syrup"></a>
+    <a class="logo-cell" href="https://www.slimchickens.co.uk" target="_blank" rel="noopener" title="Slim Chickens"><img src="/img/slim-chickens-logo-png_seeklogo-577141-clean.png" alt="Slim Chickens"></a>
+  </div>
+</div>
+
+<!-- CAPABILITIES -->
+<div class="caps-wrap">
+  <div class="caps-header">
+    <div>
+      <span class="section-label">Services</span>
+      <h2 class="section-title" style="margin:0;">Seven capabilities. One agency<span class="slash">/</span></h2>
+    </div>
+    <a href="/services" class="btn btn-ox">All Services</a>
+  </div>
+  <div class="caps-list">
+    <a href="/services#ooh" class="cap-item">
+      <div class="cap-num">01</div>
+      <div class="cap-name">OOH Advertising</div>
+    </a>
+    <a href="/services#dooh" class="cap-item">
+      <div class="cap-num">02</div>
+      <div class="cap-name">Digital OOH</div>
+    </a>
+    <a href="/services#digivans" class="cap-item">
+      <div class="cap-num">03</div>
+      <div class="cap-name">DigiVan Management</div>
+    </a>
+    <a href="/services#tv" class="cap-item">
+      <div class="cap-num">04</div>
+      <div class="cap-name">TV & On-Demand</div>
+    </a>
+    <a href="/services#audio" class="cap-item">
+      <div class="cap-num">05</div>
+      <div class="cap-name">Radio & Podcast</div>
+    </a>
+    <a href="/services#creative" class="cap-item">
+      <div class="cap-num">06</div>
+      <div class="cap-name">Creative & Design</div>
+    </a>
+    <a href="/services#web" class="cap-item">
+      <div class="cap-num">07</div>
+      <div class="cap-name">Web Design</div>
+    </a>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-strip">
+  <h2>Ready to plan your next campaign?</h2>
+  <a href="/contact" class="btn btn-white btn-arrow">Get In Touch</a>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</div>
+      <p>UK &amp; UAE based global advertising agency that offers OOH advertising, DOOH advertising, TV, radio and podcast campaigns for the biggest brands in the world.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="/about">About</a>
+      <a href="/services">Services</a>
+      <a href="/work">Our Work</a>
+      <a href="/clients">Clients</a>
+      <a href="/insights">Insights</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="/services#ooh">OOH Advertising</a>
+      <a href="/services#dooh">Digital OOH</a>
+      <a href="/services#digivans">DigiVans</a>
+      <a href="/services#tv">TV & On-Demand</a>
+      <a href="/services#audio">Radio & Podcast</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item">
+        <a href="mailto:hello@breakingads.agency">hello@breakingads.agency</a>
+      </div>
+      <div class="footer-contact-item" style="margin-top:8px;">
+        <a href="tel:+447505456730">07505 456730</a>
+      </div>
+      <div class="footer-contact-item" style="margin-top:16px;">
+        Suite 10-12 Mezzanine Floor<br>
+        Royal Liver Building, Pier Head<br>
+        Liverpool L3 1HU
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Breaking Ads Agency 2026. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/breakingads.agency/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://uk.linkedin.com/company/breaking-ads-agency" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://x.com/BreakingAdsAgcy" target="_blank" rel="noopener noreferrer">X</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* Nav mobile toggle */
+function toggleNav() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+/* Lazy load carousel background images */
+(function() {
+  var lazyBgs = document.querySelectorAll('[data-bg]');
+  if (!lazyBgs.length) return;
+  
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.style.backgroundImage = "url('" + entry.target.dataset.bg + "')";
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '200px' });
+    lazyBgs.forEach(function(el) { observer.observe(el); });
+  } else {
+    // Fallback: load all immediately
+    lazyBgs.forEach(function(el) {
+      el.style.backgroundImage = "url('" + el.dataset.bg + "')";
+    });
+  }
+})();
+
+/* Carousel JS — fisheye + drag + auto-scroll */
+(function() {
+  const wrap  = document.getElementById('carouselWrap');
+  const track = document.getElementById('carouselTrack');
+  const cards = Array.from(track.querySelectorAll('.ccard'));
+  const CARD_W = 296, N = 20, LOOP_W = CARD_W * N;
+  const AUTO = 0.85;
+  let pos=0, vel=0, isDragging=false, dragStartX=0, dragStartPos=0, lastX=0, lastTime=0;
+
+  function applyFisheye() {
+    const cx = window.innerWidth / 2;
+    cards.forEach((card, i) => {
+      const cLeft = i * CARD_W - pos;
+      const cCX   = cLeft + CARD_W / 2;
+      const d     = (cCX - cx) / cx;
+      if (Math.abs(d) > 3.2) { card.style.transform = ''; return; }
+      const ry  = -d * 32;
+      const s   = Math.max(1 - Math.abs(d) * 0.14, 0.58);
+      const tz  = -Math.abs(d) * 90;
+      card.style.transform = `perspective(1000px) rotateY(${ry}deg) scale(${s}) translateZ(${tz}px)`;
+    });
+  }
+
+  function tick() {
+    if (!isDragging) {
+      vel *= 0.95;
+      if (Math.abs(vel) < 0.08) vel = 0;
+      pos += AUTO + vel;
+    }
+    if (pos >= LOOP_W) pos -= LOOP_W;
+    if (pos < 0) pos += LOOP_W;
+    track.style.transform = `translateX(${-pos}px)`;
+    applyFisheye();
+    requestAnimationFrame(tick);
+  }
+
+  wrap.addEventListener('pointerdown', e => {
+    isDragging=true; dragStartX=e.clientX; dragStartPos=pos;
+    lastX=e.clientX; lastTime=performance.now();
+    track.setPointerCapture(e.pointerId);
+    wrap.classList.add('dragging'); vel=0;
+  });
+  wrap.addEventListener('pointermove', e => {
+    if (!isDragging) return;
+    pos = dragStartPos + (dragStartX - e.clientX);
+    if (pos >= LOOP_W) pos -= LOOP_W;
+    if (pos < 0) pos += LOOP_W;
+    const now=performance.now(), dt=now-lastTime;
+    if (dt>0) vel = ((lastX-e.clientX)/dt)*16;
+    lastX=e.clientX; lastTime=now;
+  });
+  wrap.addEventListener('pointerup', () => { isDragging=false; wrap.classList.remove('dragging'); });
+  wrap.addEventListener('pointercancel', () => { isDragging=false; wrap.classList.remove('dragging'); });
+  track.addEventListener('dragstart', e => e.preventDefault());
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>

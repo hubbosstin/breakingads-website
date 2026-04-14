@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services | Breaking Ads Agency</title>
+<meta name="description" content="Seven advertising capabilities under one roof. OOH, DOOH, DigiVan, TV, Radio, Creative and Web from one team.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap"></noscript>
+<link rel="stylesheet" href="/styles.css">
+<style>
+body { padding-top:64px; }
+
+.service-block {
+  display:grid; grid-template-columns:1fr 1fr;
+  border-bottom:1px solid var(--line);
+}
+.service-block:last-of-type { border-bottom:none; }
+.service-block.reverse { direction:rtl; }
+.service-block.reverse > * { direction:ltr; }
+
+.service-info { padding:80px 60px; }
+.service-num {
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--ox); margin-bottom:20px; display:block;
+}
+.service-title {
+  font-family:'Anton',sans-serif;
+  font-size:clamp(28px,4vw,54px); font-weight:800;
+  letter-spacing:-1px; line-height:1.05;
+  color:var(--cream); margin-bottom:24px;
+}
+.service-desc p {
+  font-size:14.5px; color:rgba(255,255,255,.42);
+  line-height:1.85; margin-bottom:16px;
+}
+.service-desc p:last-child { margin-bottom:0; }
+
+.service-visual {
+  background:var(--dark3);
+  display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden; min-height:360px;
+}
+.service-visual-bg {
+  position:absolute; inset:0;
+  background-size:cover; background-position:center;
+  filter:brightness(.4) saturate(.6);
+  transition:filter .5s;
+}
+.service-block:hover .service-visual-bg { filter:brightness(.55) saturate(.75); }
+.service-icon {
+  position:relative; z-index:2;
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:clamp(60px,10vw,130px); font-weight:900;
+  color:transparent; -webkit-text-stroke:1px rgba(245,240,232,.15);
+  letter-spacing:-2px; text-transform:uppercase;
+  user-select:none;
+}
+
+@media (max-width:768px) {
+  .service-block { grid-template-columns:1fr; }
+  .service-block.reverse { direction:ltr; }
+  .service-visual { min-height:200px; }
+  .service-info { padding:48px 24px; }
+}
+</style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/services" class="active">Services</a></li>
+    <li><a href="/work">Our Work</a></li>
+    <li><a href="/clients">Clients</a></li>
+    <li><a href="/industries/">Industries</a></li>
+    <li><a href="/contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleNav()">☰</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/about" onclick="toggleNav()">About</a>
+  <a href="/services" class="active" onclick="toggleNav()">Services</a>
+  <a href="/work" onclick="toggleNav()">Our Work</a>
+  <a href="/clients" onclick="toggleNav()">Clients</a>
+  <a href="/industries/" onclick="toggleNav()">Industries</a>
+  <a href="/contact" class="nav-cta" onclick="toggleNav()">Contact Us</a>
+</div>
+
+<div class="page-hero">
+  <span class="ph-label">Services</span>
+  <h1>Seven capabilities. One agency<span class="slash">/</span></h1>
+  <p class="ph-sub">We plan and buy media across every major channel, produce the creative to run on it, and manage the campaign from brief to completion. One team. One point of contact.</p>
+</div>
+
+<!-- SERVICE 01: OOH -->
+<div class="service-block" id="ooh">
+  <div class="service-info">
+    <span class="service-num">01 — OOH ADVERTISING</span>
+    <h2 class="service-title">Out-of-Home Advertising</h2>
+    <div class="service-desc">
+      <p>OOH covers everything you see outside your home. Billboards, bus and taxi wraps, painted murals, experiential activations, train station and tube advertising, DigiVans, building wraps and banners.</p>
+      <p>We work with media owners all over the world to build the right package for you — whether that's the biggest digital screen in Times Square or a paper bus shelter campaign in your local area.</p>
+    </div>
+    <a href="/contact" class="btn btn-ox" style="margin-top:28px;">Get a Quote</a>
+  </div>
+  <div class="service-visual">
+    <div class="service-visual-bg" style="background-image:url('/img/gopuff-tube-underground.jpg')"></div>
+  </div>
+</div>
+
+<!-- SERVICE 02: DOOH -->
+<div class="service-block reverse" id="dooh">
+  <div class="service-visual">
+    <div class="service-visual-bg" style="background-image:url('/img/charli-xcx-brat-billboard.jpg')"></div>
+  </div>
+  <div class="service-info">
+    <span class="service-num">02 — DIGITAL OOH</span>
+    <h2 class="service-title">Digital Out-of-Home</h2>
+    <div class="service-desc">
+      <p>High-impact digital screens in the right locations, at the right time. Dynamic content, real-time updates and data-driven placement that maximises your campaign's effectiveness.</p>
+      <p>From iconic roadside screens to premium indoor retail environments, we negotiate directly with media owners to secure the placements that deliver the most visibility for your brand.</p>
+    </div>
+    <a href="/contact" class="btn btn-ox" style="margin-top:28px;">Get a Quote</a>
+  </div>
+</div>
+
+<!-- SERVICE 03: DIGIVANS -->
+<div class="service-block" id="digivans">
+  <div class="service-info">
+    <span class="service-num">03 — DIGIVAN MANAGEMENT</span>
+    <h2 class="service-title">DigiVan Campaigns</h2>
+    <div class="service-desc">
+      <p>High-impact mobile advertising that gets your message seen in the right place, at the right time, by the right people. Whether it's one DigiVan targeting a local area or a convoy of 20 driving through Central London all day.</p>
+      <p>Our team plans the optimal route, maximises campaign impact, and brings in a content team to capture the social media moments your brand needs.</p>
+    </div>
+    <a href="/contact" class="btn btn-ox" style="margin-top:28px;">Get a Quote</a>
+  </div>
+  <div class="service-visual">
+    <div class="service-visual-bg" style="background-image:url('/img/sidemen-xix-event.jpg')"></div>
+  </div>
+</div>
+
+<!-- SERVICE 04: TV -->
+<div class="service-block reverse" id="tv">
+  <div class="service-visual">
+    <div class="service-visual-bg" style="background-image:url('/img/ed-sheeran-projection.jpg')"></div>
+  </div>
+  <div class="service-info">
+    <span class="service-num">04 — TV & ON-DEMAND</span>
+    <h2 class="service-title">TV & On-Demand</h2>
+    <div class="service-desc">
+      <p>National TV packages, sponsorship deals, and on-demand packages that let you target specific audiences at scale. There is an option for every brand and every budget.</p>
+      <p>With the shift towards on-demand viewing, we work closely with media owners to find the right audience and placement — meeting your objectives whether that's awareness, consideration or conversion.</p>
+    </div>
+    <a href="/contact" class="btn btn-ox" style="margin-top:28px;">Get a Quote</a>
+  </div>
+</div>
+
+<!-- SERVICE 05: RADIO/PODCAST -->
+<div class="service-block" id="audio">
+  <div class="service-info">
+    <span class="service-num">05 — RADIO & PODCAST</span>
+    <h2 class="service-title">Radio & Podcast Advertising</h2>
+    <div class="service-desc">
+      <p>Impactful storytelling and targeted messaging, whether you're reaching millions or a niche audience. Radio and podcast advertising build brand recognition and create lasting impressions that set you apart from competitors.</p>
+      <p>We handle everything from copywriting and production to placement and reporting — ensuring your message reaches the right ears at the right moment.</p>
+    </div>
+    <a href="/contact" class="btn btn-ox" style="margin-top:28px;">Get a Quote</a>
+  </div>
+  <div class="service-visual">
+    <div class="service-visual-bg" style="background-image:url('/img/aitch-album-campaign.jpg')"></div>
+  </div>
+</div>
+
+<!-- SERVICE 06: CREATIVE -->
+<div class="service-block reverse" id="creative">
+  <div class="service-visual">
+    <div class="service-visual-bg" style="background-image:url('/img/odyssey-boxpark-dooh.jpg')"></div>
+  </div>
+  <div class="service-info">
+    <span class="service-num">06 — CREATIVE & DESIGN</span>
+    <h2 class="service-title">Creative Production</h2>
+    <div class="service-desc">
+      <p>Our in-house creative team develops everything from concept through to execution. Billboard artwork, animated DOOH, TV spots, radio scripts and social content — all designed for the specific format it will run on.</p>
+      <p>Having creative and media buying under one roof means the work is always built around where it will be seen. No file format surprises on posting day.</p>
+    </div>
+    <a href="/contact" class="btn btn-ox" style="margin-top:28px;">Get a Quote</a>
+  </div>
+</div>
+
+<!-- SERVICE 07: WEB -->
+<div class="service-block" id="web">
+  <div class="service-info">
+    <span class="service-num">07 — WEB DESIGN</span>
+    <h2 class="service-title">Web Design</h2>
+    <div class="service-desc">
+      <p>Your website is often the first thing a new customer sees after encountering your brand in the real world. We design and build digital storefronts that reflect the same quality and intentionality as your outdoor campaigns.</p>
+      <p>Visually sharp, user-friendly and brand-consistent. Built to convert visitors into customers.</p>
+    </div>
+    <a href="/contact" class="btn btn-ox" style="margin-top:28px;">Get a Quote</a>
+  </div>
+  <div class="service-visual">
+    <div class="service-visual-bg" style="background-image:url('/img/mumford-sons-old-street.jpg')"></div>
+  </div>
+</div>
+
+<div class="cta-strip">
+  <h2>Not sure which service you need?</h2>
+  <a href="/contact" class="btn btn-white btn-arrow">Talk to us</a>
+</div>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</div>
+      <p>UK &amp; UAE based global advertising agency that offers OOH advertising, DOOH advertising, TV, radio and podcast campaigns for the biggest brands in the world.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="/about">About</a><a href="/services">Services</a><a href="/work">Our Work</a><a href="/clients">Clients</a><a href="/insights">Insights</a><a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="/services#ooh">OOH Advertising</a><a href="/services#dooh">Digital OOH</a><a href="/services#digivans">DigiVans</a><a href="/services#tv">TV & On-Demand</a><a href="/services#audio">Radio & Podcast</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><a href="mailto:hello@breakingads.agency">hello@breakingads.agency</a></div>
+      <div class="footer-contact-item" style="margin-top:8px;"><a href="tel:+447505456730">07505 456730</a></div>
+      <div class="footer-contact-item" style="margin-top:16px;">Suite 10-12 Mezzanine Floor<br>Royal Liver Building, Pier Head<br>Liverpool L3 1HU</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Breaking Ads Agency 2026. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/breakingads.agency/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://uk.linkedin.com/company/breaking-ads-agency" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://x.com/BreakingAdsAgcy" target="_blank" rel="noopener noreferrer">X</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+</script>
+</body>
+</html>

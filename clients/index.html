@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clients | Breaking Ads Agency</title>
+<meta name="description" content="Breaking Ads works with the world's most culturally relevant brands, record labels, music artists and fast-growing businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap"></noscript>
+<link rel="stylesheet" href="/styles.css">
+<style>
+body { padding-top:64px; }
+
+.client-sector {
+  padding:60px 60px 40px;
+  border-top:1px solid var(--line);
+}
+.client-sector:first-of-type { border-top:none; }
+.sector-label {
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--ox); margin-bottom:28px; display:block;
+}
+
+.logo-grid-full {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0;
+  border-top:1px solid var(--line);
+  border-left:1px solid var(--line);
+}
+.logo-cell-full {
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:44px 40px;
+  border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  gap:16px;
+  transition:background .25s;
+  cursor:default;
+}
+.logo-cell-full:hover { background:rgba(255,255,255,.03); }
+.logo-cell-full img {
+  max-height:42px; width:auto;
+  filter:brightness(0) invert(1);
+  opacity:.28;
+  transition:opacity .3s;
+}
+.logo-cell-full:hover img { opacity:.75; }
+.logo-client-name {
+  font-family:'DM Mono',monospace; font-size:8px;
+  letter-spacing:2px; text-transform:uppercase;
+  color:rgba(255,255,255,.18);
+  transition:color .3s;
+}
+.logo-cell-full:hover .logo-client-name { color:rgba(255,255,255,.4); }
+
+.testimonial-strip {
+  padding:80px 60px;
+  border-top:1px solid var(--line);
+  text-align:center;
+}
+.testimonial-strip blockquote {
+  font-family:'Anton',sans-serif;
+  font-size:clamp(18px,2.5vw,30px); font-weight:600;
+  color:var(--cream); line-height:1.5;
+  max-width:760px; margin:0 auto 24px;
+}
+.testimonial-strip cite {
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:rgba(255,255,255,.3); font-style:normal;
+}
+
+@media (max-width:768px) {
+  .logo-grid-full { grid-template-columns:repeat(2,1fr); }
+  .logo-cell-full { padding:32px 20px; }
+  .client-sector { padding:48px 24px 28px; }
+  .testimonial-strip { padding:60px 24px; }
+}
+</style>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</a>
+  <ul class="nav-links">
+    <li><a href="/about">About</a></li>
+    <li><a href="/services">Services</a></li>
+    <li><a href="/work">Our Work</a></li>
+    <li><a href="/clients" class="active">Clients</a></li>
+    <li><a href="/industries/">Industries</a></li>
+    <li><a href="/contact" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleNav()">☰</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/about" onclick="toggleNav()">About</a>
+  <a href="/services" onclick="toggleNav()">Services</a>
+  <a href="/work" onclick="toggleNav()">Our Work</a>
+  <a href="/clients" class="active" onclick="toggleNav()">Clients</a>
+  <a href="/industries/" onclick="toggleNav()">Industries</a>
+  <a href="/contact" class="nav-cta" onclick="toggleNav()">Contact Us</a>
+</div>
+
+<div class="page-hero">
+  <span class="ph-label">Clients</span>
+  <h1>We work with the world's most culturally relevant brands<span class="slash">/</span></h1>
+  <p class="ph-sub">Record labels, music artists, fast-growing brands, celebrities and start-ups. From a single DigiVan to a global multi-format campaign — the client list keeps growing because the work delivers.</p>
+</div>
+
+<div class="logo-grid-full">
+  <div class="logo-cell-full">
+    <img src="/img/Warner_Music_Group_logo_(2021).svg.png" alt="Warner Music Group">
+    <span class="logo-client-name">Warner Music Group</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/atlantic-black.png" alt="Atlantic Records" style="filter:invert(1);opacity:.42;">
+    <span class="logo-client-name">Atlantic Records</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/Universal_Music-clean.png" alt="Universal Music">
+    <span class="logo-client-name">Universal Music</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/sony-music-clean.png" alt="Sony Music">
+    <span class="logo-client-name">Sony Music</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/Island_Records_logo.svg" alt="Island Records">
+    <span class="logo-client-name">Island Records</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/LN_Logo_Primary_Red-Black-web-clean.png" alt="Live Nation">
+    <span class="logo-client-name">Live Nation</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/gymshark-logo-clean.png" alt="Gymshark">
+    <span class="logo-client-name">Gymshark</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/Paddy_Power_logo.png" alt="Paddy Power">
+    <span class="logo-client-name">Paddy Power</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/Gopufflogo.png" alt="Gopuff">
+    <span class="logo-client-name">Gopuff</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/Sidemen_logo.png" alt="Sidemen">
+    <span class="logo-client-name">Sidemen</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/xix-black.png" alt="XIX Vodka">
+    <span class="logo-client-name">XIX Vodka</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/au-vodka-black.png" alt="AU Vodka">
+    <span class="logo-client-name">AU Vodka</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/ann-summers-ltd-logo-vector-clean.png" alt="Ann Summers">
+    <span class="logo-client-name">Ann Summers</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/gymking-clean.png" alt="Gym King">
+    <span class="logo-client-name">Gym King</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/MASTER_HAIR_SYRUP_LOGO_-_BROWN_3e770ad6-59ed-49b6-a912-361fedffa8c1-clean.png" alt="Hair Syrup">
+    <span class="logo-client-name">Hair Syrup</span>
+  </div>
+  <div class="logo-cell-full">
+    <img src="/img/slim-chickens-logo-png_seeklogo-577141-clean.png" alt="Slim Chickens">
+    <span class="logo-client-name">Slim Chickens</span>
+  </div>
+</div>
+
+<div class="cta-strip">
+  <h2>Want to join this list?</h2>
+  <a href="/contact" class="btn btn-white btn-arrow">Brief us in</a>
+</div>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</div>
+      <p>UK &amp; UAE based global advertising agency that offers OOH advertising, DOOH advertising, TV, radio and podcast campaigns for the biggest brands in the world.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="/about">About</a><a href="/services">Services</a><a href="/work">Our Work</a><a href="/clients">Clients</a><a href="/insights">Insights</a><a href="/contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="/services#ooh">OOH Advertising</a><a href="/services#dooh">Digital OOH</a><a href="/services#digivans">DigiVans</a><a href="/services#tv">TV & On-Demand</a><a href="/services#audio">Radio & Podcast</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><a href="mailto:hello@breakingads.agency">hello@breakingads.agency</a></div>
+      <div class="footer-contact-item" style="margin-top:8px;"><a href="tel:+447505456730">07505 456730</a></div>
+      <div class="footer-contact-item" style="margin-top:16px;">Suite 10-12 Mezzanine Floor<br>Royal Liver Building, Pier Head<br>Liverpool L3 1HU</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Breaking Ads Agency 2026. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/breakingads.agency/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://uk.linkedin.com/company/breaking-ads-agency" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://x.com/BreakingAdsAgcy" target="_blank" rel="noopener noreferrer">X</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+</script>
+</body>
+</html>

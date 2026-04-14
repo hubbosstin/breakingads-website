@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audio Advertising Attribution: Measuring Radio & Podcast Campaign Results | Breaking Ads</title>
+<meta name="description" content="Audio advertising is hard to measure — but not impossible. Here is how Breaking Ads approaches attribution for radio and podcast campaigns and what metrics actually matter.">
+<link rel="canonical" href="https://breakingads.agency/insights/audio-attribution/" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://breakingads.agency/insights/audio-attribution/" />
+<meta property="og:title" content="Audio Advertising Attribution: Measuring Radio & Podcast Results" />
+<meta property="og:description" content="How to measure the results of radio and podcast advertising. Attribution methods, what to track and how to report audio campaign performance to stakeholders." />
+<meta property="og:image" content="https://breakingads.agency/img/og-image.jpg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Breaking Ads Agency" />
+<meta property="og:locale" content="en_GB" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@BreakingAdsAgcy" />
+<meta name="twitter:title" content="Audio Advertising Attribution: Measuring Radio & Podcast Results" />
+<meta name="twitter:description" content="How to measure the results of radio and podcast advertising. Attribution methods, what to track and how to report audio campaign performance to stakeholders." />
+<meta name="twitter:image" content="https://breakingads.agency/img/og-image.jpg" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Barlow+Condensed:wght@200;300;400;600;700;900&display=swap"></noscript>
+<link rel="icon" type="image/x-icon" href="/favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="stylesheet" href="/styles.css">
+<style>
+body { padding-top:64px; }
+.article-hero {
+  padding:80px 60px 60px;
+  border-bottom:1px solid var(--line);
+  max-width:860px;
+}
+.article-back {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:2.5px; text-transform:uppercase;
+  color:rgba(255,255,255,.3); text-decoration:none;
+  margin-bottom:36px; transition:color .25s;
+}
+.article-back:hover { color:var(--cream); }
+.article-back::before { content:'←'; font-size:14px; }
+.article-cat {
+  font-family:'DM Mono',monospace; font-size:9px;
+  letter-spacing:3px; text-transform:uppercase;
+  color:var(--ox); margin-bottom:18px; display:block;
+}
+.article-title {
+  font-family:'Anton',sans-serif;
+  font-size:clamp(32px,5vw,64px);
+  color:#F5F0E8; line-height:1.05;
+  letter-spacing:1px; text-transform:uppercase;
+  margin-bottom:20px; font-weight:400;
+}
+.article-meta {
+  font-family:'DM Mono',monospace; font-size:9px;
+  color:rgba(255,255,255,.28); letter-spacing:2px; text-transform:uppercase;
+}
+.article-body {
+  padding:60px 60px 100px;
+  max-width:720px;
+}
+.article-body p {
+  font-size:16px; color:rgba(245,240,232,.75);
+  line-height:1.85; margin-bottom:24px;
+  font-family:'Barlow Condensed',sans-serif; font-weight:400;
+  letter-spacing:.3px;
+}
+.article-body h3 {
+  font-family:'Anton',sans-serif; font-size:26px;
+  color:#F5F0E8; letter-spacing:1px; text-transform:uppercase;
+  margin:48px 0 18px; font-weight:400;
+}
+.article-body ul {
+  margin:0 0 24px 0; padding-left:0; list-style:none;
+}
+.article-body ul li {
+  font-family:'Barlow Condensed',sans-serif;
+  font-size:16px; color:rgba(245,240,232,.75);
+  line-height:1.7; padding:6px 0 6px 20px;
+  border-bottom:1px solid rgba(255,255,255,.04);
+  position:relative; letter-spacing:.3px;
+}
+.article-body ul li::before {
+  content:'—'; color:var(--ox);
+  position:absolute; left:0;
+  font-family:'DM Mono',monospace; font-size:11px;
+}
+@media (max-width:768px) {
+  .article-hero { padding:60px 24px 40px; }
+  .article-body { padding:40px 24px 80px; }
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "Audio Attribution: Why Podcast Metrics Matter",
+  "url": "https://breakingads.agency/insights/audio-attribution/",
+  "datePublished": "2026-04-14",
+  "dateModified": "2026-04-14",
+  "author": {
+    "@type": "Organization",
+    "name": "Breaking Ads Agency",
+    "url": "https://breakingads.agency"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Breaking Ads Agency",
+    "logo": {"@type": "ImageObject","url": "https://breakingads.agency/favicon.svg"}
+  },
+  "mainEntityOfPage": "https://breakingads.agency/insights/audio-attribution/",
+  "image": "https://breakingads.agency/img/og-image.jpg"
+}
+</script>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="/" class="nav-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</a>
+  <ul class="nav-links">
+    <li><a href="/about/">About</a></li>
+    <li><a href="/services/">Services</a></li>
+    <li><a href="/work/">Our Work</a></li>
+    <li><a href="/clients/">Clients</a></li>
+    <li><a href="/industries/">Industries</a></li>
+    <li><a href="/contact/" class="nav-cta">Contact Us</a></li>
+  </ul>
+  <button class="nav-toggle" onclick="toggleNav()">&#9776;</button>
+</nav>
+<div class="nav-mobile" id="mobileNav">
+  <a href="/about/" onclick="toggleNav()">About</a>
+  <a href="/services/" onclick="toggleNav()">Services</a>
+  <a href="/work/" onclick="toggleNav()">Our Work</a>
+  <a href="/clients/" onclick="toggleNav()">Clients</a>
+  <a href="/industries/" onclick="toggleNav()">Industries</a>
+  <a href="/contact/" class="nav-cta" onclick="toggleNav()">Contact Us</a>
+</div>
+
+<div class="article-hero">
+  <a href="/insights/" class="article-back">Back to Insights</a>
+  <span class="article-cat">Measurement</span>
+  <h1 class="article-title">Audio Attribution: Why Podcast Metrics Matter</h1>
+  <div class="article-meta">Breaking Ads &middot; 6 min read</div>
+</div>
+
+<div class="article-body">
+  <p>Audio advertising has a measurement problem. Not because the results are not there — they are — but because the standard metrics the industry has settled on often fail to capture what audio actually does for a brand.</p>
+
+  <p>Podcast downloads, radio reach figures, cost per thousand — these are the numbers that end up in reports. They tell you what you bought. They rarely tell you what changed as a result.</p>
+
+  <h3>The attribution challenge in audio</h3>
+
+  <p>Unlike digital display or search advertising, audio does not have a native click. A listener hears a brand message during their morning run or commute. They do not immediately act. But something has happened — a brand name has been deposited into short-term memory, an association has been formed, a purchase consideration has shifted.</p>
+
+  <p>The gap between that audio moment and any measurable action can be hours, days or weeks. Standard attribution models — which assume a tight relationship between ad exposure and subsequent behaviour — struggle with this lag.</p>
+
+  <p>The result is that audio campaigns are frequently undervalued in post-campaign analysis, which in turn leads to reduced investment, which reduces the effectiveness of the channel further. The measurement problem becomes a strategic problem.</p>
+
+  <h3>What actually works for audio attribution</h3>
+
+  <p>The most reliable audio attribution methods operate at the campaign level rather than the impression level. Rather than trying to track individual listener journeys — which audio cannot do with the precision of digital — these methods look at aggregate changes in behaviour that correlate with campaign activity.</p>
+
+  <p>The approaches that consistently produce useful data:</p>
+
+  <ul>
+    <li><strong>Brand search uplift.</strong> Track search volume for brand terms during and after the campaign period versus a control period. Audio advertising reliably drives branded search — listeners who hear a brand name are significantly more likely to search for it in the following 24-48 hours.</li>
+    <li><strong>Geo-based testing.</strong> Run the campaign in specific markets and compare performance metrics between those markets and similar markets where the campaign did not run. The difference is attributable to the audio activity.</li>
+    <li><strong>Vanity URL or promo code tracking.</strong> Use campaign-specific URLs or promo codes in the audio creative. Not every listener will use them, but the volume that does provides a lower-bound estimate of direct response.</li>
+    <li><strong>Podcast pixel attribution.</strong> Major podcast platforms now offer pixel-based attribution that can track web visits and conversions from listeners. Not available on all inventory but increasingly standard on programmatically-bought podcast advertising.</li>
+    <li><strong>Brand tracking surveys.</strong> Pre and post-campaign surveys measuring awareness, consideration and purchase intent. The most accurate measure of what audio advertising actually changes in the audience's relationship with the brand.</li>
+  </ul>
+
+  <h3>Radio versus podcast: different measurement environments</h3>
+
+  <p>Radio and podcast advertising require different measurement approaches because the listening environments are different.</p>
+
+  <p>Radio reaches mass audiences across broad demographics, often in contexts — driving, cooking, background listening — where direct response is low but ambient awareness builds. The best metrics for radio are reach, frequency and brand tracking. Direct response metrics will underperform relative to the actual brand effect.</p>
+
+  <p>Podcast audiences are smaller but more engaged. Listeners choose their shows, they listen on-demand, and they have a different relationship with the host and therefore with the advertising that host delivers. Podcast attribution is more tractable than radio because the listening is deliberate and addressable. If a listener heard an ad and visited a website, the digital trail exists.</p>
+
+  <h3>Setting the right KPIs before you book</h3>
+
+  <p>The measurement problem in audio advertising usually starts before the campaign launches — because the wrong KPIs are agreed at the outset.</p>
+
+  <p>Setting cost per click as the primary KPI for a podcast campaign is like setting footfall to store as the primary KPI for a building wrap. The format does not produce the metric you have chosen to measure. The campaign will look like it failed when it has actually done its job.</p>
+
+  <p>Before booking audio, agree what a successful campaign looks like in terms the format can actually deliver: brand search volume, brand awareness shift, reach among the target audience at a certain frequency. Then measure those things.</p>
+
+  <p>Audio advertising at sufficient weight, in the right editorial context, consistently moves those metrics. The brands that understand this invest in it accordingly. The brands that apply digital attribution models to audio consistently underinvest and leave genuine brand-building value on the table.
+
+<div style="margin-top:48px;padding-top:40px;border-top:1px solid var(--line);">
+  <span style="font-family:'DM Mono',monospace;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--ox);display:block;margin-bottom:20px;">Related Reading</span>
+    <a href="/insights/why-ooh-still-wins/" style="display:block;font-family:'Anton',sans-serif;font-size:15px;letter-spacing:.5px;text-transform:uppercase;color:var(--cream);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line);transition:color .2s;" onmouseover="this.style.color='var(--ox)'" onmouseout="this.style.color='var(--cream)'">Why OOH Still Wins in a Saturated Digital Market →</a>
+  <a href="/insights/ooh-playbooks/" style="display:block;font-family:'Anton',sans-serif;font-size:15px;letter-spacing:.5px;text-transform:uppercase;color:var(--cream);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line);transition:color .2s;" onmouseover="this.style.color='var(--ox)'" onmouseout="this.style.color='var(--cream)'">OOH Campaign Playbooks by Sector →</a>
+  <a href="/services/" style="display:block;font-family:'Anton',sans-serif;font-size:15px;letter-spacing:.5px;text-transform:uppercase;color:var(--cream);text-decoration:none;padding:12px 0;border-bottom:1px solid var(--line);transition:color .2s;" onmouseover="this.style.color='var(--ox)'" onmouseout="this.style.color='var(--cream)'">Radio & Podcast Advertising — Our Services →</a>
+</div>
+</div>
+
+<div class="cta-strip">
+  <h2>Ready to plan a campaign?</h2>
+  <a href="/contact/" class="btn btn-white btn-arrow">Contact Us</a>
+</div>
+
+<footer class="footer">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">BREAKING<span style="color:var(--ox);">/</span>ADS</div>
+      <p>UK &amp; UAE based global advertising agency that offers OOH advertising, DOOH advertising, TV, radio and podcast campaigns for the biggest brands in the world.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <a href="/about/">About</a><a href="/services/">Services</a><a href="/work/">Our Work</a><a href="/clients/">Clients</a><a href="/insights/">Insights</a><a href="/contact/">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="/services/#ooh">OOH Advertising</a><a href="/services/#dooh">Digital OOH</a><a href="/services/#digivans">DigiVans</a><a href="/services/#tv">TV &amp; On-Demand</a><a href="/services/#audio">Radio &amp; Podcast</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <div class="footer-contact-item"><a href="mailto:hello@breakingads.agency">hello@breakingads.agency</a></div>
+      <div class="footer-contact-item" style="margin-top:8px;"><a href="tel:+447505456730">07505 456730</a></div>
+      <div class="footer-contact-item" style="margin-top:16px;">Suite 10-12 Mezzanine Floor<br>Royal Liver Building, Pier Head<br>Liverpool L3 1HU</div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Breaking Ads Agency 2026. All rights reserved.</p>
+    <div class="footer-socials">
+      <a href="https://www.instagram.com/breakingads.agency/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <a href="https://uk.linkedin.com/company/breaking-ads-agency" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      <a href="https://x.com/BreakingAdsAgcy" target="_blank" rel="noopener noreferrer">X</a>
+    </div>
+  </div>
+</footer>
+<script>
+function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+</script>
+</body>
+</html>
